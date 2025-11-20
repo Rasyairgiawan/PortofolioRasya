@@ -1,0 +1,220 @@
+/* Enhanced CSS for Rasya Portfolio - Add to existing CSS */
+
+/* Theme Variables for Dark/Light Mode */
+:root {
+    --bg-color: #1f242d;
+    --snd-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --snd-bg-color: #f0f8ff;
+    --text-color: #333333;
+    --main-color: #0a305a;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 8rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1.5rem var(--main-color);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 1.5rem var(--main-color);
+}
+
+/* Scroll Animations */
+.services-box,
+.sertifikat-box,
+.testimonial-item,
+.about-content,
+.about-img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.services-box.animate-in,
+.sertifikat-box.animate-in,
+.testimonial-item.animate-in,
+.about-content.animate-in,
+.about-img.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Navigation Active State */
+.navbar a.active {
+    color: var(--main-color);
+    text-shadow: 0 0 10px var(--main-color);
+}
+
+/* Image Loading States */
+img.loading {
+    opacity: 0.5;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+img.error {
+    border: 2px dashed #ff4757;
+}
+
+/* Enhanced Form Styles */
+.contact form .input-box {
+    position: relative;
+}
+
+.contact form .input-box.focused input,
+.contact form .input-box.focused textarea {
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px rgba(14, 255, 255, 0.3);
+}
+
+.contact form input.error,
+.contact form textarea.error {
+    border-color: #ff4757;
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+}
+
+.error-message {
+    color: #ff4757;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+}
+
+/* Enhanced Modal Animations */
+.modal {
+    transition: opacity 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal .modal-content {
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Cursor Animation */
+.typed-cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Pulse Animation for Call-to-Action */
+.btn.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(14, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(14, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(14, 255, 255, 0);
+    }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 1.5rem;
+        right: 6rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .back-to-top {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .theme-toggle,
+    .back-to-top,
+    .social-media {
+        display: none !important;
+    }
+}

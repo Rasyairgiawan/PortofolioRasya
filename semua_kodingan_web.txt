@@ -1,0 +1,2077 @@
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html 
+============================== 
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+            rel='stylesheet'>
+        <link rel="stylesheet" href="css/main.css">
+
+        <title>Rasya Irgiawan - Full Stack Developer Portfolio</title>
+
+    </head>
+
+    <body>
+
+        <!-- header section code -->
+
+        <header class="header">
+            <a href="#home" class="logo">MOCH. RASYA IRGIAWAN</a>
+
+            <i class='bx bx-menu' id="menu-icon"></i>
+
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Service</a>
+                <a href="#sertifikat">Certificate</a>
+                <a href="#testimonial">Testimoni</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Home Section Code -->
+
+        <section class="home" id="home">
+            <div class="home-img">
+                <img src="assets/3.jpg" alt="Profile Image">
+            </div>
+
+            <div class="home-content">
+                <h3>Hello, MySelf</h3>
+                <h1>Rasya Irgiawan</h1>
+                <h3>And I'm <span class="multiple-text">Full-Stack
+                        Developer</span></h3>
+                <p>Saya memiliki pengalaman dalam membangun website responsif
+                    menggunakan HTML, CSS, dan JavaScript, serta
+                    bekerja dengan framework modern seperti Laravel dan React,
+                    Saya juga memiliki pengalaman menggunakan
+                    Java dan Flutter dalam membuat aplikasi mobile </p>
+
+                <div class="social-media">
+                    <a
+                        href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                            class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/Rasyairgiawan"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.facebook.com/rasya.691143"><i
+                            class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/rasyairgiawan/"><i
+                            class='bx bxl-instagram'></i></a>
+                </div>
+                <a href="#" class="btn">Download CV</a>
+            </div>
+        </section>
+
+        <!-- about section code  -->
+
+        <section class="about" id="about">
+            <div class="about-main">
+                <div class="about-content">
+                    <h2 class="heading">About <span>Me</span></h2>
+                    <h3>I'm <span>Full Stack Developer</span></h3>
+                    <p>Halo! Saya adalah seorang Full-Stack Developer yang
+                        bersemangat menciptakan tampilan antarmuka yang menarik
+                        dan responsif. Dengan pengalaman dalam HTML, CSS, dan
+                        JavaScript, saya fokus pada detail dan pengalaman
+                        pengguna untuk menghasilkan aplikasi, web, game yang
+                        memukau.</p>
+                    <p>Saya selalu belajar dan mengikuti perkembangan teknologi
+                        terbaru untuk memastikan hasil kerja yang terbaik. Jika
+                        Anda mencari seseorang yang dapat membantu mewujudkan
+                        ide-ide kreatif Anda ke dalam bentuk digital, mari kita
+                        bekerja sama!</p>
+                    <a href="#" class="btn" id="readMoreBtn">Read More</a>
+                </div>
+                <div class="about-img">
+                    <img src="assets/rasya formal.jpg" alt="Profile Image">
+                </div>
+            </div>
+
+            <!-- Enhanced Features - NOW PROPERLY POSITIONED -->
+            <div class="enhanced-features" id="enhancedFeatures">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+
+                <div class="info-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-button active"
+                            data-tab="skills">Skills</button>
+                        <button class="tab-button"
+                            data-tab="experience">Experience</button>
+                        <button class="tab-button" data-tab="facts">Fun
+                            Facts</button>
+                    </div>
+
+                    <div class="tab-content active" id="skills">
+                        <h3 class="skills-title">Technical Skills</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"
+                                    style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"
+                                    style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Java</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"
+                                    style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Flutter</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress"
+                                    style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="experience">
+                        <h3 class="timeline-title">My Journey</h3>
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2023 - Present</div>
+                                <div class="timeline-content">Full-Stack
+                                    Developer - Freelance</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2023 - 2023</div>
+                                <div class="timeline-content">Internship - PT BIG
+                                    DATA (UBIG)</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021 - 2022</div>
+                                <div class="timeline-content">Learning Web
+                                    Development</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2020 - 2021</div>
+                                <div class="timeline-content">Computer
+                                    Networking Studies</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="facts">
+                        <h3 class="skills-title">Fun Facts About Me</h3>
+                        <div class="fact-item">
+                            <i class='bx bx-coffee fact-icon'></i>
+                            <span>I drink 5+ cups of coffee daily while
+                                coding</span>
+                        </div>
+                        <div class="fact-item">
+                            <i class='bx bx-code-alt fact-icon'></i>
+                            <span>I've written over 100,000 lines of code</span>
+                        </div>
+                        <div class="fact-item">
+                            <i class='bx bx-moon fact-icon'></i>
+                            <span>I'm most productive during late night
+                                hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <i class='bx bx-game fact-icon'></i>
+                            <span>I love playing games in my free time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- servise section code -->
+
+        <section class="services" id="services">
+            <h2 class="heading">My <span>Services</span></h2>
+
+            <div class="services-container">
+                <div class="services-box">
+                    <i class="bx bx-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Membangun situs web modern dan responsif dengan teknologi
+                        terkini untuk membantu bisnis Anda tampil
+                        profesional dan menarik di dunia digital.</p>
+                    <a href="#services" class="btn"
+                        onclick="openModal('webdev')">Read More</a>
+                </div>
+
+                <div class="services-box">
+                    <i class="bx bx-palette"></i>
+                    <h3>UI / UX Design</h3>
+                    <p>Mendesain antarmuka pengguna yang intuitif dan pengalaman
+                        pengguna yang memikat, menciptakan produk
+                        digital yang mudah digunakan dan estetis.</p>
+                    <a href="#services" class="btn"
+                        onclick="openModal('uiux')">Read More</a>
+                </div>
+
+                <div class="services-box">
+                    <i class="bx bxl-android"></i>
+                    <h3>App Development</h3>
+                    <p>Mengembangkan aplikasi mobile yang inovatif, berperforma
+                        tinggi, dan sesuai dengan kebutuhan bisnis
+                        Anda untuk platform Android dan iOS.</p>
+                    <a href="#services" class="btn"
+                        onclick="openModal('appdev')">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for Web Development -->
+        <div id="webdev-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <i class="bx bx-code"></i>
+                        <span>Web Development</span>
+                    </div>
+                    <span class="close"
+                        onclick="closeModal('webdev')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Saya menyediakan layanan pengembangan web yang lengkap
+                        dan profesional untuk membantu bisnis Anda berkembang di
+                        era digital. Dengan pengalaman lebih dari 3 tahun, saya
+                        siap membantu mewujudkan visi digital Anda.</p>
+
+                    <h4>Layanan yang Saya Tawarkan:</h4>
+                    <ul>
+                        <li>Pembuatan website responsif dan modern</li>
+                        <li>Pengembangan aplikasi web interaktif</li>
+                        <li>Optimasi SEO dan performa website</li>
+                        <li>Integrasi API dan sistem pembayaran</li>
+                        <li>Maintenance dan update berkelanjutan</li>
+                        <li>Konsultasi strategi digital</li>
+                    </ul>
+
+                    <h4>Teknologi yang Saya Gunakan:</h4>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML</span>
+                        <span class="tech-item">CSS</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">PHP</span>
+                        <span class="tech-item">Laravel</span>
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Express.js</span>
+                        <span class="tech-item">MongoDB</span>
+                        <span class="tech-item">MySQL</span>
+                    </div>
+
+                    <div class="price-section">
+                        <h4>Paket Harga Web Development</h4>
+                        <div class="price-list">
+                            <div class="price-item">
+                                <h5>Basic Package</h5>
+                                <div class="price">Rp 2.500.000</div>
+                                <p>Landing page responsif</p>
+                            </div>
+                            <div class="price-item">
+                                <h5>Standard Package</h5>
+                                <div class="price">Rp 5.000.000</div>
+                                <p>Website company profile</p>
+                            </div>
+                            <div class="price-item">
+                                <h5>Premium Package</h5>
+                                <div class="price">Rp 10.000.000</div>
+                                <p>Web application kompleks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for UI/UX Design -->
+        <div id="uiux-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <i class="bx bx-palette"></i>
+                        <span>UI / UX Design</span>
+                    </div>
+                    <span class="close"
+                        onclick="closeModal('uiux')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Menciptakan pengalaman pengguna yang luar biasa melalui
+                        desain yang intuitif dan estetis. Saya fokus pada
+                        user-centered design untuk memastikan setiap interaksi
+                        memberikan kepuasan maksimal bagi pengguna.</p>
+
+                    <h4>Layanan Design yang Saya Tawarkan:</h4>
+                    <ul>
+                        <li>User Research dan Analysis</li>
+                        <li>Wireframing dan Prototyping</li>
+                        <li>UI Design untuk web dan mobile</li>
+                        <li>UX Audit dan Optimization</li>
+                        <li>Design System Development</li>
+                        <li>Usability Testing</li>
+                    </ul>
+
+                    <h4>Tools yang Saya Gunakan:</h4>
+                    <div class="tech-stack">
+                        <span class="tech-item">Figma</span>
+                        <span class="tech-item">Adobe XD</span>
+                        <span class="tech-item">Sketch</span>
+                        <span class="tech-item">Photoshop</span>
+                        <span class="tech-item">Illustrator</span>
+                        <span class="tech-item">InVision</span>
+                        <span class="tech-item">Principle</span>
+                    </div>
+
+                    <div class="price-section">
+                        <h4>Paket Harga UI/UX Design</h4>
+                        <div class="price-list">
+                            <div class="price-item">
+                                <h5>Basic Design</h5>
+                                <div class="price">Rp 1.500.000</div>
+                                <p>UI design 5 halaman</p>
+                            </div>
+                            <div class="price-item">
+                                <h5>Standard Design</h5>
+                                <div class="price">Rp 3.000.000</div>
+                                <p>UI/UX design lengkap</p>
+                            </div>
+                            <div class="price-item">
+                                <h5>Premium Design</h5>
+                                <div class="price">Rp 6.000.000</div>
+                                <p>Design system + prototype</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for App Development -->
+        <div id="appdev-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <i class="bx bxl-android"></i>
+                        <span>App Development</span>
+                    </div>
+                    <span class="close"
+                        onclick="closeModal('appdev')">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Mengembangkan aplikasi mobile yang inovatif dan
+                        berkualitas tinggi untuk platform Android dan iOS. Saya
+                        berfokus pada performance, user experience, dan
+                        scalability untuk memastikan aplikasi Anda sukses di
+                        market.</p>
+
+                    <h4>Layanan App Development:</h4>
+                    <ul>
+                        <li>Native Android Development</li>
+                        <li>Cross-platform Development</li>
+                        <li>App Store Optimization</li>
+                        <li>API Integration</li>
+                        <li>Push Notification System</li>
+                        <li>App Maintenance & Updates</li>
+                    </ul>
+
+                    <h4>Teknologi Mobile yang Saya Gunakan:</h4>
+                    <div class="tech-stack">
+                        <span class="tech-item">Flutter</span>
+                        <span class="tech-item">Java</span>
+                        <span class="tech-item">Kotlin</span>
+                        <span class="tech-item">React Native</span>
+                        <span class="tech-item">Firebase</span>
+                        <span class="tech-item">SQLite</span>
+                        <span class="tech-item">REST API</span>
+                    </div>
+
+                    <div class="price-section">
+                        <h4>Paket Harga App Development</h4>
+                        <div class="price-list">
+                            <div class="price-item">
+                                <h5>Basic App</h5>
+                                <div class="price">Rp 8.000.000</div>
+                                <p>Simple mobile app</p>
+                            </div>
+                            <div class="price-item">
+                                <h5>Standard App</h5>
+                                <div class="price">Rp 15.000.000</div>
+                                <p>Business mobile app</p>
+                            </div>
+                            <div class="price-item">
+                                <h5>Premium App</h5>
+                                <div class="price">Rp 25.000.000</div>
+                                <p>Complex app with backend</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sertifikat Section -->
+
+        <section class="sertifikat" id="sertifikat">
+            <h2 class="heading">e-<span>Certificate</span></h2>
+            <div class="sertifikat-container">
+
+                <div class="sertifikat-box">
+                    <img src="assets/runner up.jpg" alt="Logo">
+                    <h3>IT Incubation Program – Runner-up </h3>
+                </div>
+                <div class="sertifikat-box">
+                    <img src="assets/sertifubig.jpg" alt="Logo2">
+                    <h3>nternship – PT Universal Big Data (UBIG) </h3>
+                </div>
+                <div class="sertifikat-box">
+                    <img src="assets/sertifBnsp.jpg" alt="Logo2">
+                    <h3>Certificate in Computer Networking – National
+                        Qualification Framework Level II </h3>
+                </div>
+                <div class="sertifikat-box">
+                    <img src="assets/sertifTKJ.jpg" alt="Logo2">
+                    <h3>Certificate of Competency in Computer Network
+                        Engineering </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+
+        <section class="testimonial" id="testimonial">
+
+            <div class="testimonial-box">
+                <h2 class="heading">Testimonials</h2>
+
+                <div class="wrapper">
+                    <div class="testimonial-item">
+                        <img src="assets/ngab owi.jpg" alt>
+
+                        <h2>Jokowi</h2>
+                        <div class="rating">
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                        </div>
+                        <p>"Rasya benar-benar memberikan hasil kerja yang luar
+                            biasa. Sangat profesional dan mudah diajak
+                            bekerja sama. Website saya kini terlihat modern dan
+                            responsif!"</p>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <img src="assets/sungeng.jpg" alt>
+
+                        <h2>Sugeng</h2>
+                        <div class="rating">
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                        </div>
+                        <p>"Pengalaman bekerja dengan Rasya sangat menyenangkan.
+                            Desain yang dibuat sangat sesuai dengan
+                            visi saya, dan detailnya sangat diperhatikan."</p>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <img src="assets/jepri.jpg" alt>
+
+                        <h2>Jefri Nichol</h2>
+                        <div class="rating">
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                        </div>
+                        <p>"Layanan yang diberikan sangat memuaskan. Rasya
+                            selalu cepat merespons dan memberikan solusi yang
+                            kreatif. Hasil akhirnya sangat memuaskan!"</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Contact Section -->
+
+        <section class="contact" id="contact">
+            <h2 class="heading">Contact <span>Me</span></h2>
+
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name">
+                    <input type="number" placeholder="Phone Number">
+
+                </div>
+                <div class="input-box">
+                    <input type="email" name="Email"
+                        placeholder="Email Address">
+                    <input type="text" placeholder="Email Subject">
+                </div>
+                <textarea name="message" id cols="30" rows="10"
+                    placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message" class="btn">
+            </form>
+        </section>
+
+        <!-- Footer Section Code -->
+
+        <footer class="footer">
+            <div class="social">
+                <a
+                    href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/Rasyairgiawan"><i
+                        class='bx bxl-github'></i></a>
+                <a href="https://www.facebook.com/rasya.691143"><i
+                        class='bx bxl-facebook'></i></a>
+                <a href="https://www.instagram.com/rasyairgiawan/"><i
+                        class='bx bxl-instagram'></i></a>
+            </div>
+            <p class="copyright">
+                &copy;Rasya irgiawan - All Rights Reserved
+            </p>
+        </footer>
+
+        <script src="javascript/about.js"></script>
+        <script src="javascript/navbar.js"></script>
+        <script src="javascript/modal.js"></script>
+
+    </body>
+
+</html> 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\about.css 
+============================== 
+ :root {
+     --bg-color: #1f242d;
+     --snd-bg-color: #323946;
+     --text-color: #fff;
+     --main-color: #0ef;
+ }
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     background: var(--bg-color);
+     color: var(--text-color);
+     font-family: 'Poppins', sans-serif;
+ }
+
+ /* About Section - FIXED STRUCTURE */
+ .about {
+     background: var(--snd-bg-color);
+     padding: 10rem 9% 2rem;
+     min-height: 90vh;
+ }
+
+ .about-main {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 2rem;
+     margin-bottom: 4rem;
+     flex-wrap: wrap;
+ }
+
+ .about-content {
+     flex: 1;
+     padding: 0 2rem;
+     min-width: 300px;
+ }
+
+ .about-content h2 {
+     text-align: left;
+     line-height: 1.2;
+ }
+
+ .about-content h3 {
+     font-size: 3rem;
+     margin-bottom: 2rem;
+ }
+
+ .about-content p {
+     font-size: 1.6rem;
+     margin: 2rem 0 3rem;
+     line-height: 1.6;
+ }
+
+ .about-img {
+     position: relative;
+     flex-shrink: 0;
+ }
+
+ .about-img img {
+     width: 25vw;
+     border: 2px solid var(--main-color);
+     border-radius: 50%;
+     box-shadow: 0 0 25px var(--main-color);
+     cursor: pointer;
+     transition: 0.4s ease;
+ }
+
+ .about-img img:hover {
+     box-shadow: 0 0 25px var(--main-color),
+         0 0 35px var(--main-color),
+         0 0 45px var(--main-color);
+     transform: scale(1.05);
+ }
+
+ /* Enhanced Features - FIXED POSITIONING */
+ .enhanced-features {
+     width: 100%;
+     margin-top: 2rem;
+     opacity: 0;
+     max-height: 0;
+     overflow: hidden;
+     transition: all 0.5s ease;
+ }
+
+ .enhanced-features.show {
+     opacity: 1;
+     max-height: 2000px;
+ }
+
+ .heading {
+     font-size: 6rem;
+     text-align: left;
+     margin-bottom: 2rem;
+ }
+
+ .heading span {
+     color: var(--main-color);
+ }
+
+ /* Stats Counter */
+ .stats-container {
+     display: flex;
+     gap: 2rem;
+     margin: 3rem 0;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+ .stat-item {
+     background: rgba(255, 255, 255, 0.05);
+     padding: 1.5rem;
+     border-radius: 10px;
+     text-align: center;
+     border: 1px solid rgba(14, 255, 255, 0.2);
+     transition: all 0.3s ease;
+     cursor: pointer;
+     min-width: 120px;
+ }
+
+ .stat-item:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 10px 20px rgba(14, 255, 255, 0.3);
+ }
+
+ .stat-number {
+     font-size: 2.5rem;
+     font-weight: bold;
+     color: var(--main-color);
+     display: block;
+ }
+
+ .stat-label {
+     font-size: 1.2rem;
+     margin-top: 0.5rem;
+ }
+
+ /* Tabs */
+ .info-tabs {
+     margin: 3rem 0;
+ }
+
+ .tab-buttons {
+     display: flex;
+     gap: 1rem;
+     margin-bottom: 2rem;
+     justify-content: center;
+     flex-wrap: wrap;
+ }
+
+ .tab-button {
+     padding: 1rem 2rem;
+     background: rgba(255, 255, 255, 0.1);
+     border: 1px solid var(--main-color);
+     color: var(--text-color);
+     border-radius: 5px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     font-size: 1.4rem;
+ }
+
+ .tab-button.active {
+     background: var(--main-color);
+     color: var(--bg-color);
+ }
+
+ .tab-button:hover {
+     background: var(--main-color);
+     color: var(--bg-color);
+ }
+
+ .tab-content {
+     display: none;
+     padding: 2rem;
+     background: rgba(255, 255, 255, 0.05);
+     border-radius: 10px;
+     border: 1px solid rgba(14, 255, 255, 0.2);
+ }
+
+ .tab-content.active {
+     display: block;
+     animation: fadeIn 0.3s ease;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* Skills */
+ .skills-title {
+     font-size: 2.5rem;
+     margin-bottom: 2rem;
+     color: var(--main-color);
+     text-align: center;
+ }
+
+ .skill-item {
+     margin-bottom: 2rem;
+ }
+
+ .skill-name {
+     font-size: 1.4rem;
+     margin-bottom: 0.5rem;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .skill-bar {
+     width: 100%;
+     height: 8px;
+     background: rgba(255, 255, 255, 0.1);
+     border-radius: 10px;
+     overflow: hidden;
+ }
+
+ .skill-progress {
+     height: 100%;
+     background: linear-gradient(90deg, var(--main-color), #00ff88);
+     border-radius: 10px;
+     transition: width 2s ease;
+     position: relative;
+ }
+
+ .skill-progress::after {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+     animation: shimmer 2s infinite;
+ }
+
+ @keyframes shimmer {
+     0% {
+         transform: translateX(-100%);
+     }
+
+     100% {
+         transform: translateX(100%);
+     }
+ }
+
+ /* Timeline */
+ .timeline-title {
+     font-size: 2.5rem;
+     margin-bottom: 2rem;
+     color: var(--main-color);
+     text-align: center;
+ }
+
+ .timeline-container {
+     position: relative;
+     padding-left: 2rem;
+ }
+
+ .timeline-container::before {
+     content: '';
+     position: absolute;
+     left: 0;
+     top: 0;
+     height: 100%;
+     width: 2px;
+     background: var(--main-color);
+ }
+
+ .timeline-item {
+     position: relative;
+     margin-bottom: 2rem;
+     padding-left: 2rem;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .timeline-item::before {
+     content: '';
+     position: absolute;
+     left: -1rem;
+     top: 0.5rem;
+     width: 12px;
+     height: 12px;
+     background: var(--main-color);
+     border-radius: 50%;
+     box-shadow: 0 0 10px var(--main-color);
+ }
+
+ .timeline-item:hover {
+     transform: translateX(10px);
+ }
+
+ .timeline-date {
+     font-size: 1.2rem;
+     color: var(--main-color);
+     font-weight: bold;
+ }
+
+ .timeline-content {
+     font-size: 1.4rem;
+     margin-top: 0.5rem;
+ }
+
+ /* Fun Facts */
+ .fact-item {
+     background: rgba(255, 255, 255, 0.05);
+     padding: 1.5rem;
+     border-radius: 10px;
+     margin-bottom: 1rem;
+     border-left: 4px solid var(--main-color);
+     transition: all 0.3s ease;
+     display: flex;
+     align-items: center;
+ }
+
+ .fact-item:hover {
+     transform: translateX(10px);
+     box-shadow: 0 5px 15px rgba(14, 255, 255, 0.2);
+ }
+
+ .fact-icon {
+     font-size: 2rem;
+     color: var(--main-color);
+     margin-right: 1rem;
+ }
+
+ .btn {
+     display: inline-block;
+     padding: 1.2rem 2.8rem;
+     background: var(--main-color);
+     border-radius: 4rem;
+     box-shadow: 0 0 1rem var(--main-color);
+     font-size: 1.6rem;
+     color: var(--snd-bg-color);
+     letter-spacing: 0.1rem;
+     font-weight: 600;
+     border: 2px solid transparent;
+     transition: 0.5s ease;
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+ .btn:hover {
+     background: transparent;
+     color: var(--main-color);
+     border-color: var(--main-color);
+ }
+
+ @media (max-width: 768px) {
+     .about-main {
+         flex-direction: column-reverse;
+         text-align: center;
+     }
+
+     .about-content {
+         padding: 0 1rem;
+     }
+ } 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\certificate.css 
+============================== 
+/* sertifikat section code  */
+
+.sertifikat {
+    background: var(--snd-bg-color);
+}
+
+.sertifikat .heading {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.sertifikat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.sertifikat-box {
+    min-height: 450px;
+    max-width: 450px;
+    background: var(--bg-color);
+    border: 0.3rem solid var(--bg-color);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 20px 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text-color);
+    transition: 0.3s ease;
+}
+
+.sertifikat-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.sertifikat-box img {
+    width: 100%;
+    max-width: 50rem;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.sertifikat-box h3 {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+ 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\contact.css 
+============================== 
+/* Contact Section */
+
+.contact {
+    background: var(--snd-bg-color);
+}
+
+.contact .heading {
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 3rem;
+    color: var(--main-color)
+}
+
+.contact form {
+    max-width: 80rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.25rem solid var(--main-color);
+    margin: 0.7rem 0;
+    resize: none;
+}
+
+.contact form .input-box input {
+    width: 49%;
+    margin: 0.7rem 0.35rem;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+} 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\footer.css 
+============================== 
+/* Footer Section */
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--bg-color);
+}
+
+.footer .social {
+    text-align: center;
+    padding-bottom: 0px;
+    color: var(--main-color);
+}
+
+.footer .social a {
+    font-size: 25px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease;
+}
+
+.footer .social a:hover {
+    transform: scale(1.2) translateY(-10px);
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
+} 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css 
+============================== 
+/* Header Section Code */
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    background: var(--main-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--bg-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar a {
+    font-size: 1.9rem;
+    color: var(--bg-color);
+    margin-left: 4rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--text-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--bg-color);
+    cursor: pointer;
+    display: none;
+}
+ 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\home.css 
+============================== 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: -apple-system, sans-serif;
+}
+
+:root {
+    --bg-color: #fff;
+    --snd-bg-color: #d5fdf9;
+    --text-color: #000;
+    --main-color: #0a305a;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+/* Home Section Code */
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img img {
+    width: 25vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    animation: floatImage 4s ease-in-out infinite;
+    transition: 0.4s ease;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+        0 0 35px var(--main-color),
+        0 0 45px var(--main-color);
+
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2.4rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.home-content {
+    margin-left: 5rem;
+}
+
+.home-content h3 {
+    font-size: 3.7rem;
+    font-weight: 700;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
+}
+
+span {
+    color: var(--main-color);
+
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 700;
+    animation: l1 1s linear infinite alternate;
+}
+
+@keyframes l1 {
+    to {
+        opacity: 0
+    }
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+}
+
+.social-media a:hover {
+    transform: scale(1.2) translateY(-10px);
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: none;
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    box-shadow: 0 0 1.6rem var(--main-color);
+}
+
+ 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\main.css 
+============================== 
+@import url("about.css");
+@import url("certificate.css");
+@import url("home.css");
+@import url("contact.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("responsive.css");
+@import url("services.css");
+@import url("testimonial.css"); 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\responsive.css 
+============================== 
+/* responsive desain */
+
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3%;
+    }
+
+    .services {
+        padding: 7rem;
+    }
+
+    .testimonial .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 991px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        background-color: #0d1b2a;
+        padding: 10px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: #00b4d8;
+    }
+
+    /* Toggle Style */
+    .toggle-btn {
+        display: none;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    /* Responsive */
+   @media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        width: 140px;
+        background: linear-gradient(135deg, #0d1b2a, #1b263b);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1rem;
+        display: none;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        z-index: 9999;
+        transition: all 0.3s ease;
+        border: 1px solid #00b4d8;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .navbar a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: #00b4d8;
+        transition: width 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+        width: 100%;
+    }
+
+    .navbar a:hover {
+        color: #00b4d8;
+        transform: translateX(5px);
+    }
+
+    #menu-icon {
+        position: fixed;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 3rem;
+        color: white;
+        z-index: 10000;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    #menu-icon:hover {
+        transform: rotate(90deg);
+    }
+}
+
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-content {
+        order: 2;
+        margin-left: 1rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 617px) {
+    .home-img img {
+        width: 70vw;
+        margin-top: 8rem;
+    }
+
+    .about-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 617px) {
+    html {
+        font-size: 50%;
+    }
+} 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\services.css 
+============================== 
+/* service section code */
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 30rem;
+    background: var(--snd-bg-color);
+    padding: 6rem 2rem 6rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 0.3rem solid var(--bg-color);
+    transition: 0.3s ease;
+}
+
+.services-container .services-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.services-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.services-box h3 {
+    font-size: 2.6rem;
+}
+
+.services-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: none;
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: 0 0 1.6rem var(--main-color);
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: var(--bg-color);
+    margin: 5% auto;
+    padding: 3rem;
+    border-radius: 2rem;
+    width: 90%;
+    max-width: 80rem;
+    max-height: 85vh;
+    position: relative;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease;
+    overflow-y: auto;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.2rem solid var(--snd-bg-color);
+}
+
+.modal-title {
+    font-size: 3rem;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-title i {
+    font-size: 3.5rem;
+    color: var(--main-color);
+}
+
+.close {
+    color: var(--text-color);
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close:hover {
+    color: var(--main-color);
+    background: var(--snd-bg-color);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.modal-body h4 {
+    color: var(--main-color);
+    font-size: 2rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding-left: 2rem;
+}
+
+.modal-body li {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.modal-body li:before {
+    content: "→";
+    color: var(--main-color);
+    font-weight: bold;
+    position: absolute;
+    left: -2rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.tech-item {
+    background: var(--snd-bg-color);
+    color: var(--main-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 0.1rem solid var(--main-color);
+    transition: 0.3s ease;
+}
+
+.tech-item:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+}
+
+.price-section {
+    background: var(--snd-bg-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+.price-section h4 {
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.price-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.price-item {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    border: 0.1rem solid var(--main-color);
+    transition: 0.3s ease;
+}
+
+.price-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(10, 48, 90, 0.1);
+}
+
+.price-item h5 {
+    color: var(--main-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-item .price {
+    font-size: 2.2rem;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 2rem;
+    }
+
+    .modal-title {
+        font-size: 2.5rem;
+    }
+
+    .modal-body {
+        font-size: 1.4rem;
+    }
+
+    .tech-stack {
+        justify-content: center;
+    }
+
+    .price-list {
+        grid-template-columns: 1fr;
+    }
+} 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\testimonial.css 
+============================== 
+
+/* testimonial section code */
+
+.testimonial {
+    background: var(--bg-color);
+}
+
+.testimonial-box {
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.testimonial .heading {
+    margin-bottom: 5rem;
+}
+
+.testimonial-box img {
+    width: 15rem;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.testimonial-item {
+    min-height: 450px;
+    max-width: 450px;
+    background: var(--snd-bg-color);
+    border: 0.3rem solid var(--snd-bg-color);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 20px 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text-color);
+    transition: 0.3s ease;
+}
+
+.testimonial-item:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.testimonial-item h2 {
+    font-size: 3rem;
+}
+
+.testimonial-item p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#star {
+    color: gold;
+    font-size: 2rem;
+}
+ 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\javascript\about.js 
+============================== 
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing about section...');
+    
+    // Toggle Read More functionality
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    const enhancedFeatures = document.getElementById('enhancedFeatures');
+    let isExpanded = false;
+    
+    // Check if elements exist
+    if (!readMoreBtn || !enhancedFeatures) {
+        console.error('Required elements not found!');
+        console.log('readMoreBtn:', readMoreBtn);
+        console.log('enhancedFeatures:', enhancedFeatures);
+        return;
+    }
+
+    // Event listener untuk button read more
+    readMoreBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Read More button clicked!');
+        
+        if (!isExpanded) {
+            enhancedFeatures.classList.add('show');
+            readMoreBtn.textContent = 'Read Less';
+            isExpanded = true;
+            
+            // Animate stats counter when shown
+            animateStats();
+        } else {
+            enhancedFeatures.classList.remove('show');
+            readMoreBtn.textContent = 'Read More';
+            isExpanded = false;
+            
+            // Reset stats counter
+            resetStats();
+        }
+    });
+
+    // Stats counter animation
+    function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        console.log('Animating stats, found:', statNumbers.length, 'elements');
+        
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            const increment = target / 100;
+            let current = 0;
+            
+            const updateStat = () => {
+                if (current < target) {
+                    current += increment;
+                    stat.textContent = Math.ceil(current);
+                    setTimeout(updateStat, 20);
+                } else {
+                    stat.textContent = target;
+                }
+            };
+            
+            updateStat();
+        });
+    }
+
+    // Skill bars animation on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 500);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            skillsObserver.observe(bar);
+        });
+
+    // Reset stats counter
+    function resetStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            stat.textContent = '0';
+        });
+    }
+
+    // Tab functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.getAttribute('data-tab');
+            console.log('Tab clicked:', targetTab);
+            
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+
+    // Optional: Smooth scroll ketika enhanced features muncul
+    function smoothScrollToElement(element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+        });
+    }
+
+    // Optional: Event listener untuk smooth scroll
+    readMoreBtn.addEventListener('click', function() {
+        if (isExpanded) {
+            setTimeout(() => {
+                smoothScrollToElement(enhancedFeatures);
+            }, 100);
+        }
+    });
+    
+    console.log('About section initialized successfully!');
+}); 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\javascript\modal.js 
+============================== 
+function openModal(serviceType) {
+    const modal = document.getElementById(serviceType + '-modal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(serviceType) {
+    const modal = document.getElementById(serviceType + '-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+}); 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\javascript\navbar.js 
+============================== 
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+
+// Toggle menu
+menuIcon.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    menuIcon.classList.toggle('bx-x');
+});
+
+// Tutup navbar saat link diklik
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    });
+});
+ 
+ 
