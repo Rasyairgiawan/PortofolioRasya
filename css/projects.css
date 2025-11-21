@@ -1,0 +1,229 @@
+/* Projects Section - FIXED */
+
+.projects {
+    background: var(--snd-bg-color);
+    padding: 10rem 9% 2rem;
+    min-height: 100vh;
+}
+
+.projects .heading {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    padding: 0 2rem;
+}
+
+.project-box {
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    background: var(--bg-color);
+    border: 0.3rem solid var(--bg-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-box:hover {
+    border-color: var(--main-color);
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 2rem var(--main-color);
+}
+
+.project-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.5s ease;
+}
+
+.project-box:hover img {
+    transform: scale(1.1);
+}
+
+.project-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(14, 239, 255, 0.95) 0%, rgba(14, 239, 255, 0.8) 70%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: 0.5s ease;
+    opacity: 0;
+}
+
+.project-box:hover .project-layer {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-layer h4 {
+    font-size: 2.5rem;
+    color: var(--bg-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.project-layer p {
+    font-size: 1.4rem;
+    color: var(--bg-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech span {
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: var(--bg-color);
+    border-radius: 50%;
+    color: var(--main-color);
+    font-size: 2rem;
+    transition: 0.3s ease;
+}
+
+.project-links a:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* Responsive Design - FIXED */
+@media (max-width: 1200px) {
+    .projects {
+        padding: 8rem 5% 2rem;
+    }
+    
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .projects {
+        padding: 8rem 4% 2rem;
+    }
+    
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .project-box {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 8rem 3% 2rem;
+    }
+    
+    .projects .heading {
+        font-size: 4.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .project-box {
+        height: 400px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .project-layer h4 {
+        font-size: 2.2rem;
+    }
+
+    .project-layer p {
+        font-size: 1.3rem;
+    }
+    
+    .project-layer {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects {
+        padding: 7rem 2% 2rem;
+    }
+    
+    .projects .heading {
+        font-size: 3.5rem;
+    }
+    
+    .project-box {
+        height: 350px;
+    }
+    
+    .project-layer {
+        padding: 1.2rem;
+    }
+    
+    .project-layer h4 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-layer p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-tech span {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .project-links a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+    }
+}

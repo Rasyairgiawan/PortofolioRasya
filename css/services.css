@@ -1,64 +1,87 @@
-/* service section code */
+/* Services Section - COMPLETELY FIXED FOR ALL DEVICES */
+
+.services {
+    background: var(--bg-color);
+    padding: 10rem 9% 2rem;
+    min-height: 100vh;
+}
 
 .services h2 {
     text-align: center;
     margin-bottom: 5rem;
+    font-size: 5rem;
 }
 
 .services-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .services-container .services-box {
-    flex: 1 1 30rem;
     background: var(--snd-bg-color);
-    padding: 6rem 2rem 6rem;
+    padding: 4rem 2.5rem;
     border-radius: 2rem;
     text-align: center;
     border: 0.3rem solid var(--bg-color);
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 420px;
 }
 
 .services-container .services-box:hover {
     border-color: var(--main-color);
-    transform: scale(1.02);
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(14, 239, 255, 0.3);
 }
 
 .services-box i {
     font-size: 7rem;
     color: var(--main-color);
+    margin-bottom: 2rem;
+    display: block;
 }
 
 .services-box h3 {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-weight: 700;
 }
 
 .services-box p {
     font-size: 1.6rem;
-    margin: 1rem 0 3rem;
+    margin: 1.5rem 0 2.5rem;
+    line-height: 1.8;
+    flex-grow: 1;
+    color: var(--text-color);
 }
 
 .btn {
     display: inline-block;
-    padding: 1rem 2.8rem;
+    padding: 1.2rem 3rem;
     background: var(--main-color);
     border-radius: 4rem;
-    box-shadow: none;
     font-size: 1.6rem;
     color: var(--bg-color);
     letter-spacing: 0.1rem;
     font-weight: 600;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
+    border: 2px solid var(--main-color);
+    text-decoration: none;
 }
 
 .btn:hover {
-    box-shadow: 0 0 1.6rem var(--main-color);
-    transform: translateY(-2px);
+    background: transparent;
+    color: var(--main-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1.5rem rgba(14, 239, 255, 0.3);
 }
 
 /* Modal Styles */
@@ -70,19 +93,14 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     animation: fadeIn 0.3s ease;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .modal-content {
@@ -94,7 +112,7 @@
     max-width: 80rem;
     max-height: 85vh;
     position: relative;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     animation: slideIn 0.3s ease;
     overflow-y: auto;
 }
@@ -104,7 +122,6 @@
         transform: translateY(-50px);
         opacity: 0;
     }
-
     to {
         transform: translateY(0);
         opacity: 1;
@@ -116,7 +133,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     border-bottom: 0.2rem solid var(--snd-bg-color);
 }
 
@@ -135,52 +152,54 @@
 
 .close {
     color: var(--text-color);
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 1;
 }
 
 .close:hover {
     color: var(--main-color);
     background: var(--snd-bg-color);
-    transform: scale(1.1);
+    transform: rotate(90deg);
 }
 
 .modal-body {
     font-size: 1.6rem;
     line-height: 1.8;
-    margin-bottom: 2rem;
 }
 
 .modal-body h4 {
     color: var(--main-color);
-    font-size: 2rem;
-    margin: 2rem 0 1rem 0;
+    font-size: 2.2rem;
+    margin: 2.5rem 0 1.5rem 0;
 }
 
 .modal-body ul {
     list-style: none;
-    padding-left: 2rem;
+    padding-left: 0;
 }
 
 .modal-body li {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    padding-left: 2.5rem;
     position: relative;
 }
 
 .modal-body li:before {
-    content: "→";
+    content: "✓";
     color: var(--main-color);
     font-weight: bold;
+    font-size: 2rem;
     position: absolute;
-    left: -2rem;
+    left: 0;
 }
 
 .tech-stack {
@@ -197,8 +216,8 @@
     border-radius: 2rem;
     font-size: 1.4rem;
     font-weight: 600;
-    border: 0.1rem solid var(--main-color);
-    transition: 0.3s ease;
+    border: 0.2rem solid var(--main-color);
+    transition: all 0.3s ease;
 }
 
 .tech-item:hover {
@@ -209,70 +228,338 @@
 
 .price-section {
     background: var(--snd-bg-color);
-    padding: 2rem;
-    border-radius: 1rem;
-    margin-top: 2rem;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    margin-top: 3rem;
 }
 
 .price-section h4 {
-    color: var(--main-color);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .price-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
 .price-item {
     background: var(--bg-color);
-    padding: 1.5rem;
-    border-radius: 1rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
     text-align: center;
-    border: 0.1rem solid var(--main-color);
-    transition: 0.3s ease;
+    border: 0.2rem solid var(--main-color);
+    transition: all 0.3s ease;
 }
 
 .price-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 1rem 2rem rgba(10, 48, 90, 0.1);
+    box-shadow: 0 1rem 2rem rgba(14, 239, 255, 0.2);
 }
 
 .price-item h5 {
     color: var(--main-color);
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .price-item .price {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     color: var(--main-color);
     font-weight: bold;
+    margin: 1rem 0;
 }
 
-/* Responsive Design */
+.price-item p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Large Desktop */
+@media (max-width: 1400px) {
+    .services-container {
+        gap: 2.5rem;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .services {
+        padding: 8rem 5% 2rem;
+    }
+    
+    .services-container {
+        gap: 2rem;
+    }
+    
+    .services-box {
+        padding: 3.5rem 2rem;
+        min-height: 400px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .services {
+        padding: 8rem 4% 2rem;
+    }
+    
+    .services h2 {
+        font-size: 4.5rem;
+        margin-bottom: 4rem;
+    }
+    
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .services-box {
+        padding: 3rem 2rem;
+        min-height: 380px;
+    }
+    
+    .services-box i {
+        font-size: 6rem;
+    }
+    
+    .services-box h3 {
+        font-size: 2.5rem;
+    }
+    
+    .services-box p {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Large */
 @media (max-width: 768px) {
+    .services {
+        padding: 8rem 3% 2rem;
+    }
+    
+    .services h2 {
+        font-size: 4rem;
+        margin-bottom: 3.5rem;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 500px;
+    }
+    
+    .services-box {
+        padding: 3.5rem 2.5rem;
+        min-height: 400px;
+    }
+    
+    .services-box i {
+        font-size: 6.5rem;
+    }
+    
+    .services-box h3 {
+        font-size: 2.6rem;
+    }
+    
+    .services-box p {
+        font-size: 1.6rem;
+        margin: 1.5rem 0 2rem;
+    }
+    
+    /* Modal Responsive */
     .modal-content {
         width: 95%;
         margin: 10% auto;
-        padding: 2rem;
+        padding: 2.5rem;
     }
 
     .modal-title {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
+    }
+    
+    .modal-title i {
+        font-size: 3rem;
     }
 
     .modal-body {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
-
-    .tech-stack {
-        justify-content: center;
+    
+    .modal-body h4 {
+        font-size: 2rem;
     }
 
     .price-list {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile Medium */
+@media (max-width: 617px) {
+    .services {
+        padding: 7rem 3% 2rem;
+    }
+    
+    .services h2 {
+        font-size: 3.8rem;
+    }
+    
+    .services-container {
+        max-width: 100%;
+        gap: 2rem;
+    }
+    
+    .services-box {
+        padding: 3rem 2rem;
+        min-height: 380px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .services {
+        padding: 7rem 2% 2rem;
+    }
+    
+    .services h2 {
+        font-size: 3.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .services-container {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .services-box {
+        padding: 2.5rem 2rem;
+        min-height: 360px;
+    }
+    
+    .services-box i {
+        font-size: 6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .services-box h3 {
+        font-size: 2.3rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .services-box p {
+        font-size: 1.5rem;
+        margin: 1.2rem 0 2rem;
+    }
+    
+    .btn {
+        padding: 1.1rem 2.6rem;
+        font-size: 1.5rem;
+    }
+    
+    /* Modal Mobile */
+    .modal-content {
+        padding: 2rem;
+        margin: 15% auto 5%;
+        max-height: 80vh;
+    }
+    
+    .modal-title {
+        font-size: 2.2rem;
+    }
+    
+    .modal-title i {
+        font-size: 2.6rem;
+    }
+    
+    .close {
+        width: 4rem;
+        height: 4rem;
+        font-size: 3rem;
+    }
+    
+    .modal-body {
+        font-size: 1.4rem;
+    }
+    
+    .modal-body h4 {
+        font-size: 1.9rem;
+        margin: 2rem 0 1.2rem;
+    }
+    
+    .modal-body li {
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-body li:before {
+        font-size: 1.6rem;
+    }
+    
+    .tech-stack {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .tech-item {
+        font-size: 1.3rem;
+        padding: 0.7rem 1.3rem;
+    }
+    
+    .price-section {
+        padding: 2rem;
+    }
+    
+    .price-item {
+        padding: 1.5rem;
+    }
+    
+    .price-item h5 {
+        font-size: 1.8rem;
+    }
+    
+    .price-item .price {
+        font-size: 2.1rem;
+    }
+    
+    .price-item p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+    .services h2 {
+        font-size: 3.2rem;
+    }
+    
+    .services-container {
+        padding: 0 0.5rem;
+    }
+    
+    .services-box {
+        padding: 2.2rem 1.8rem;
+        min-height: 340px;
+    }
+    
+    .services-box i {
+        font-size: 5.5rem;
+    }
+    
+    .services-box h3 {
+        font-size: 2.1rem;
+    }
+    
+    .services-box p {
+        font-size: 1.4rem;
+    }
+    
+    .btn {
+        padding: 1rem 2.3rem;
+        font-size: 1.4rem;
     }
 }

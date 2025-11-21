@@ -1,5 +1,5 @@
 @import url("about.css");
-@import url("certificate.css");
+@import url("projects.css");
 @import url("home.css");
 @import url("contact.css");
 @import url("header.css");
@@ -7,3 +7,4 @@
 @import url("responsive.css");
 @import url("services.css");
 @import url("testimonial.css");
+@import url("enhanced.css");

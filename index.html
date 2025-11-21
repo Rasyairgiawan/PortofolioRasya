@@ -7,6 +7,28 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <style>
+      /* Temporary fix for logo alignment */
+      .header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      /* Ensure proper mobile layout */
+      @media (max-width: 991px) {
+        .logo {
+          flex: 1;
+          text-align: left;
+        }
+      }
+    </style>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/enhanced.css" />
 
@@ -25,7 +47,7 @@
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#services" class="nav-link">Services</a>
-        <a href="#sertifikat" class="nav-link">Certificate</a>
+        <a href="#projects" class="nav-link">Projects</a>
         <a href="#testimonial" class="nav-link">Testimoni</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -449,29 +471,131 @@
       </div>
     </div>
 
-    <!-- Sertifikat Section -->
+    <!-- Projects Section -->
 
-    <section class="sertifikat" id="sertifikat">
-      <h2 class="heading">e-<span>Certificate</span></h2>
-      <div class="sertifikat-container">
-        <div class="sertifikat-box">
-          <img src="assets/runner up.jpg" alt="Logo" />
-          <h3>IT Incubation Program – Runner-up</h3>
+    <section class="projects" id="projects">
+      <h2 class="heading">My <span>Projects</span></h2>
+      <div class="projects-container">
+        <div class="project-box">
+          <img src="assets/sertifBnsp.jpg" alt="E-Commerce Website" />
+          <div class="project-layer">
+            <h4>E-Commerce Website</h4>
+            <p>
+              Website e-commerce lengkap dengan sistem pembayaran dan admin
+              dashboard
+            </p>
+            <div class="project-tech">
+              <span>Laravel</span>
+              <span>MySQL</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="sertifikat-box">
-          <img src="assets/sertifubig.jpg" alt="Logo2" />
-          <h3>nternship – PT Universal Big Data (UBIG)</h3>
+
+        <div class="project-box">
+          <img
+            src="assets/Screenshot 2025-11-21 181253.png"
+            alt="Mobile Banking App"
+          />
+          <div class="project-layer">
+            <h4>Mobile Banking App</h4>
+            <p>
+              Aplikasi mobile banking dengan fitur transfer, pembayaran, dan
+              investasi
+            </p>
+            <div class="project-tech">
+              <span>Flutter</span>
+              <span>Firebase</span>
+              <span>REST API</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="sertifikat-box">
-          <img src="assets/sertifBnsp.jpg" alt="Logo2" />
-          <h3>
-            Certificate in Computer Networking – National Qualification
-            Framework Level II
-          </h3>
+
+        <div class="project-box">
+          <img src="assets/project3.jpg" alt="Company Profile Website" />
+          <div class="project-layer">
+            <h4>Company Profile Website</h4>
+            <p>
+              Website company profile modern dengan CMS custom dan responsive
+              design
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="sertifikat-box">
-          <img src="assets/sertifTKJ.jpg" alt="Logo2" />
-          <h3>Certificate of Competency in Computer Network Engineering</h3>
+
+        <div class="project-box">
+          <img src="assets/project4.jpg" alt="Task Management App" />
+          <div class="project-layer">
+            <h4>Task Management App</h4>
+            <p>
+              Aplikasi manajemen tugas dengan real-time collaboration dan
+              notifications
+            </p>
+            <div class="project-tech">
+              <span>Vue.js</span>
+              <span>Express.js</span>
+              <span>Socket.io</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-box">
+          <img src="assets/project5.jpg" alt="Food Delivery App" />
+          <div class="project-layer">
+            <h4>Food Delivery App</h4>
+            <p>
+              Aplikasi pesan makanan online dengan tracking order dan payment
+              gateway
+            </p>
+            <div class="project-tech">
+              <span>React Native</span>
+              <span>Laravel</span>
+              <span>Midtrans</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-box">
+          <img src="assets/project6.jpg" alt="Portfolio Website" />
+          <div class="project-layer">
+            <h4>Portfolio Website</h4>
+            <p>
+              Website portfolio interaktif dengan animasi dan dark mode toggle
+            </p>
+            <div class="project-tech">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>GSAP</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

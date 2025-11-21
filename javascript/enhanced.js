@@ -1,4 +1,4 @@
-// Enhanced JavaScript for Rasya Portfolio
+// Enhanced JavaScript for Rasya Portfolio - FIXED
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Portfolio enhanced features initialized');
     
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Navigation
     initEnhancedNavigation();
     
-    // Dark/Light Mode Toggle
+    // Dark/Light Mode Toggle - FIXED
     initThemeToggle();
     
     // Back to Top Button
@@ -67,10 +67,10 @@ function initTypingAnimation() {
     setTimeout(type, 1000);
 }
 
-// Scroll Animations with Intersection Observer
+// Scroll Animations with Intersection Observer - UPDATED
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
-        '.services-box, .sertifikat-box, .testimonial-item, .about-content, .about-img'
+        '.services-box, .project-box, .testimonial-item, .about-content, .about-img'
     );
     
     const observerOptions = {
@@ -92,12 +92,11 @@ function initScrollAnimations() {
     });
 }
 
-// Enhanced Navigation with Active State
+// Enhanced Navigation with Active State - FIXED
 function initEnhancedNavigation() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a');
     
-    // Highlight active section in navigation
     function highlightNav() {
         let scrollY = window.pageYOffset;
         
@@ -131,13 +130,21 @@ function initEnhancedNavigation() {
                     top: targetSection.offsetTop - 80,
                     behavior: 'smooth'
                 });
+                
+                // Update active state
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
             }
         });
     });
+    
+    // Initial highlight
+    highlightNav();
 }
 
-// Dark/Light Mode Toggle
+// Dark/Light Mode Toggle - FIXED VERSION
 function initThemeToggle() {
+    // Create theme toggle button
     const themeToggle = document.createElement('button');
     themeToggle.innerHTML = '<i class="bx bx-moon"></i>';
     themeToggle.className = 'theme-toggle';
@@ -145,25 +152,36 @@ function initThemeToggle() {
     
     // Add to header
     const header = document.querySelector('.header');
-    header.appendChild(themeToggle);
+    if (header) {
+        header.appendChild(themeToggle);
+    }
     
     // Check for saved theme preference or default to dark
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    document.body.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    
+    // Apply theme
+    applyTheme(currentTheme);
     
     themeToggle.addEventListener('click', function() {
-        const currentTheme = document.body.getAttribute('data-theme');
+        const currentTheme = document.body.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        document.body.setAttribute('data-theme', newTheme);
+        applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
     });
+    
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+    }
     
     function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
-        icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+        if (icon) {
+            icon.className = theme === 'dark' ? 'bx bx-moon' : 'bx bx-sun';
+        }
     }
 }
 

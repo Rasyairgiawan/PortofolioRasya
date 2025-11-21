@@ -1,6 +1,6 @@
-/* Enhanced CSS for Rasya Portfolio - Add to existing CSS */
+/* Enhanced CSS for Rasya Portfolio - FIXED THEME */
 
-/* Theme Variables for Dark/Light Mode */
+/* Theme Variables for Dark/Light Mode - FIXED */
 :root {
     --bg-color: #1f242d;
     --snd-bg-color: #323946;
@@ -12,33 +12,39 @@
     --bg-color: #ffffff;
     --snd-bg-color: #f0f8ff;
     --text-color: #333333;
-    --main-color: #0a305a;
+    --main-color: #0a74da;
 }
 
-/* Theme Toggle Button */
+/* Ensure theme applies to all elements */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header theme consistency */
+.header {
+    background: var(--main-color) !important;
+}
+
+.navbar a {
+    color: var(--bg-color) !important;
+}
+
+.logo {
+    color: var(--bg-color) !important;
+}
+
+/* Theme toggle colors */
 .theme-toggle {
-    position: fixed;
-    top: 2rem;
-    right: 8rem;
-    background: var(--main-color);
-    color: var(--bg-color);
-    border: none;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1001;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 1rem var(--main-color);
+    background: var(--bg-color);
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 1.5rem var(--main-color);
+    background: var(--main-color);
+    color: var(--bg-color);
 }
 
 /* Back to Top Button */
@@ -74,9 +80,9 @@
     box-shadow: 0 0 1.5rem var(--main-color);
 }
 
-/* Scroll Animations */
+/* Scroll Animations - UPDATED */
 .services-box,
-.sertifikat-box,
+.project-box,
 .testimonial-item,
 .about-content,
 .about-img {
@@ -86,7 +92,7 @@
 }
 
 .services-box.animate-in,
-.sertifikat-box.animate-in,
+.project-box.animate-in,
 .testimonial-item.animate-in,
 .about-content.animate-in,
 .about-img.animate-in {
@@ -96,8 +102,8 @@
 
 /* Enhanced Navigation Active State */
 .navbar a.active {
-    color: var(--main-color);
-    text-shadow: 0 0 10px var(--main-color);
+    color: var(--text-color) !important;
+    text-shadow: 0 0 10px var(--text-color);
 }
 
 /* Image Loading States */
@@ -129,7 +135,7 @@ img.error {
 .contact form .input-box.focused input,
 .contact form .input-box.focused textarea {
     border-color: var(--main-color);
-    box-shadow: 0 0 10px rgba(14, 255, 255, 0.3);
+    box-shadow: 0 0 10px var(--main-color);
 }
 
 .contact form input.error,
@@ -181,7 +187,7 @@ img.error {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(14, 255, 255, 0.7);
+        box-shadow: 0 0 0 0 var(--main-color);
     }
     70% {
         box-shadow: 0 0 0 10px rgba(14, 255, 255, 0);
@@ -193,14 +199,6 @@ img.error {
 
 /* Responsive Enhancements */
 @media (max-width: 768px) {
-    .theme-toggle {
-        top: 1.5rem;
-        right: 6rem;
-        width: 3.5rem;
-        height: 3.5rem;
-        font-size: 1.8rem;
-    }
-    
     .back-to-top {
         width: 4rem;
         height: 4rem;
