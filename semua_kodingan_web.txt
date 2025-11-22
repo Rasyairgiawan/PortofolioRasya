@@ -480,20 +480,25 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
       <h2 class="heading">My <span>Projects</span></h2>
       <div class="projects-container">
         <div class="project-box">
-          <img src="assets/sertifBnsp.jpg" alt="E-Commerce Website" />
+          <img
+            src="assets/TaskManagerApp.png"
+            alt="E-Commerce Website"
+          />
           <div class="project-layer">
-            <h4>E-Commerce Website</h4>
+            <h4>Task Manager App</h4>
             <p>
-              Website e-commerce lengkap dengan sistem pembayaran dan admin
-              dashboard
+              Website Task Manager dengan fitur CRUD, autentikasi, dan
+              notifikasi
             </p>
             <div class="project-tech">
-              <span>Laravel</span>
-              <span>MySQL</span>
+              <span>React</span>
+              <span>Firebase</span>
               <span>JavaScript</span>
             </div>
             <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i></a>
+              <a href="task-manager-app-bice-nine.vercel.app"
+                ><i class="bx bx-link-external"></i
+              ></a>
               <a href="#"><i class="bx bxl-github"></i></a>
             </div>
           </div>
