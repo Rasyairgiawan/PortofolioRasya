@@ -1,4 +1,4 @@
-// Enhanced Header & Mobile Navigation - FIXED SYMMETRY
+// Enhanced Header & Mobile Navigation - FIXED
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
     const menuIcon = document.querySelector('#menu-icon');
@@ -12,23 +12,58 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    // Set initial display based on screen width
+    function setInitialMenuIconDisplay() {
+        if (window.innerWidth > 991) {
+            // Desktop: Sembunyikan menu icon
+            menuIcon.style.display = 'none';
+        } else {
+            // Mobile: Tampilkan menu icon
+            menuIcon.style.display = 'flex';
+        }
+    }
+
     // Create header actions container for better mobile layout
     function createHeaderStructure() {
-        const headerActions = document.createElement('div');
-        headerActions.className = 'header-actions';
+        let headerActions = document.querySelector('.header-actions');
         
-        // Move theme toggle and menu icon into header actions
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            headerActions.appendChild(themeToggle);
+        if (!headerActions) {
+            headerActions = document.createElement('div');
+            headerActions.className = 'header-actions';
+            
+            // Move theme toggle ke header actions
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                headerActions.appendChild(themeToggle);
+            }
+            
+            // Selalu tambah menu icon ke DOM, tapi kontrol display dengan CSS/JS
+            headerActions.appendChild(menuIcon);
+            
+            header.appendChild(headerActions);
         }
-        headerActions.appendChild(menuIcon);
-        
-        header.appendChild(headerActions);
     }
 
     // Initialize header structure
     createHeaderStructure();
+    
+    // Set initial display
+    setInitialMenuIconDisplay();
+
+    // Update menu icon display saat resize
+    function updateMenuIconOnResize() {
+        if (window.innerWidth > 991) {
+            // Desktop: Sembunyikan menu icon dan tutup menu jika terbuka
+            menuIcon.style.display = 'none';
+            closeMenu();
+        } else {
+            // Mobile: Tampilkan menu icon
+            menuIcon.style.display = 'flex';
+        }
+    }
+
+    // Listen for window resize
+    window.addEventListener('resize', updateMenuIconOnResize);
 
     // Header scroll effect
     function handleScroll() {
@@ -39,27 +74,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Toggle mobile menu
+    // Toggle mobile menu - HANYA DI MOBILE
     function toggleMenu() {
-        navbar.classList.toggle('active');
-        body.classList.toggle('menu-open');
-        
-        // Change icon with proper animation
-        if (navbar.classList.contains('active')) {
-            menuIcon.classList.remove('bx-menu');
-            menuIcon.classList.add('bx-x');
-        } else {
-            menuIcon.classList.remove('bx-x');
-            menuIcon.classList.add('bx-menu');
+        // Hanya toggle jika di mobile
+        if (window.innerWidth <= 991) {
+            navbar.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            
+            // Change icon with proper animation
+            if (navbar.classList.contains('active')) {
+                menuIcon.classList.remove('bx-menu');
+                menuIcon.classList.add('bx-x');
+            } else {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            }
         }
     }
 
     // Close mobile menu
     function closeMenu() {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
-        menuIcon.classList.add('bx-menu');
-        body.classList.remove('menu-open');
+        if (navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+            if (menuIcon) {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            }
+            body.classList.remove('menu-open');
+        }
     }
 
     // Smooth scroll to section
@@ -103,9 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
         highlightActiveSection();
     });
 
-    // Menu icon click
+    // Menu icon click - HANYA JIKA DI MOBILE
     menuIcon.addEventListener('click', function(e) {
-        e.preventDefault();
         e.stopPropagation();
         toggleMenu();
     });
@@ -118,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             
             // Close mobile menu if open
-            if (window.innerWidth <= 991 && navbar.classList.contains('active')) {
+            if (window.innerWidth <= 991) {
                 closeMenu();
             }
             
@@ -140,15 +181,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 991 && 
             navbar.classList.contains('active') &&
             !navbar.contains(e.target) && 
-            e.target !== menuIcon &&
-            !menuIcon.contains(e.target)) {
-            closeMenu();
-        }
-    });
-
-    // Close menu on window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 991 && navbar.classList.contains('active')) {
+            !menuIcon.contains(e.target) &&
+            e.target !== menuIcon) {
             closeMenu();
         }
     });
@@ -160,9 +194,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Close menu when theme toggle is clicked on mobile
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991 && navbar.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    }
+
     // Initialize
     handleScroll();
     highlightActiveSection();
     
-    console.log('Mobile navigation initialized successfully!');
+    console.log('Navigation initialized successfully!');
 });

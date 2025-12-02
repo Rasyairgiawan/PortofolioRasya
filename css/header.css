@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 9%;
-    background: var(--main-color);
+    background: var(--main-color) !important;
     transition: all 0.3s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     min-height: 70px;
@@ -17,7 +17,7 @@
 
 .logo {
     font-size: 2.2rem;
-    color: var(--bg-color);
+    color: var(--bg-color) !important;
     font-weight: 800;
     cursor: pointer;
     transition: 0.3s ease;
@@ -40,7 +40,7 @@
 
 .navbar a {
     font-size: 1.6rem;
-    color: var(--bg-color);
+    color: var(--bg-color) !important;
     font-weight: 600;
     transition: 0.3s ease;
     text-decoration: none;
@@ -52,7 +52,7 @@
 
 .navbar a:hover,
 .navbar a.active {
-    color: var(--text-color);
+    color: var(--text-color) !important;
     background: rgba(255, 255, 255, 0.15);
 }
 
@@ -73,38 +73,57 @@
     width: 70%;
 }
 
-/* Menu Icon - Hidden on Desktop */
+/* Menu Icon - HIDDEN DI DESKTOP DEFAULT */
 #menu-icon {
     font-size: 3.2rem;
     color: var(--bg-color);
     cursor: pointer;
-    display: none;
+    display: none; /* DEFAULT: HIDDEN DI SEMUA DEVICE */
     transition: 0.3s ease;
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Theme Toggle Button */
+/* Tampilkan menu icon HANYA di mobile */
+@media (max-width: 991px) {
+    #menu-icon {
+        display: flex !important; /* TAMPIL HANYA DI MOBILE */
+    }
+}
+
+/* Theme Toggle Button - FIXED */
 .theme-toggle {
-    background: var(--bg-color);
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    width: 4.5rem;
-    height: 4.5rem;
+    background: var(--bg-color) !important;
+    color: var(--main-color) !important;
+    border: 2px solid var(--main-color) !important;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.8rem;
     transition: all 0.3s ease;
     box-shadow: 0 0 1rem var(--main-color);
-    margin-left: 1.5rem;
     flex-shrink: 0;
+    z-index: 1002;
 }
 
 .theme-toggle:hover {
     transform: scale(1.1);
-    background: var(--main-color);
-    color: var(--bg-color);
+    background: var(--main-color) !important;
+    color: var(--bg-color) !important;
+}
+
+/* Header Actions Container */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1001;
 }
 
 /* ==================== MOBILE STYLES ==================== */
@@ -118,10 +137,11 @@
     .logo {
         font-size: 2rem;
         z-index: 1001;
+        flex: 1;
     }
     
     #menu-icon {
-        display: block;
+        display: flex !important;
         z-index: 1001;
         font-size: 3rem;
     }
@@ -133,7 +153,7 @@
         left: -100%;
         width: 100%;
         height: 100vh;
-        background: var(--main-color);
+        background: var(--main-color) !important;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -149,7 +169,7 @@
     
     .navbar a {
         font-size: 2.2rem;
-        color: var(--bg-color);
+        color: var(--bg-color) !important;
         padding: 1.2rem 2.5rem;
         border-radius: 1rem;
         text-align: center;
@@ -162,7 +182,7 @@
     .navbar a:hover,
     .navbar a.active {
         background: rgba(255, 255, 255, 0.2);
-        color: var(--bg-color);
+        color: var(--bg-color) !important;
         border-color: var(--bg-color);
         transform: scale(1.05);
     }
@@ -172,14 +192,17 @@
     }
     
     .theme-toggle {
-        position: fixed;
-        top: 1.2rem;
-        right: 6rem;
+        display: flex !important;
+        position: static !important;
         z-index: 1001;
-        margin-left: 0;
-        width: 4rem;
-        height: 4rem;
-        font-size: 1.8rem;
+        margin: 0 !important;
+    }
+    
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: auto;
     }
 }
 
@@ -196,20 +219,18 @@
     
     #menu-icon {
         font-size: 2.8rem;
-    }
-    
-    .navbar a {
-        font-size: 2rem;
-        padding: 1rem 2rem;
-        width: 85%;
+        width: 3.8rem;
+        height: 3.8rem;
     }
     
     .theme-toggle {
-        top: 1rem;
-        right: 5rem;
         width: 3.8rem;
         height: 3.8rem;
         font-size: 1.7rem;
+    }
+    
+    .header-actions {
+        gap: 0.8rem;
     }
 }
 
@@ -226,25 +247,18 @@
     
     #menu-icon {
         font-size: 2.6rem;
-    }
-    
-    .navbar {
-        gap: 1rem;
-        padding: 1.5rem;
-    }
-    
-    .navbar a {
-        font-size: 1.8rem;
-        padding: 0.9rem 1.8rem;
-        width: 90%;
+        width: 3.5rem;
+        height: 3.5rem;
     }
     
     .theme-toggle {
-        top: 0.8rem;
-        right: 4.5rem;
         width: 3.5rem;
         height: 3.5rem;
         font-size: 1.6rem;
+    }
+    
+    .header-actions {
+        gap: 0.6rem;
     }
 }
 
@@ -264,20 +278,18 @@
     
     #menu-icon {
         font-size: 2.4rem;
-    }
-    
-    .navbar a {
-        font-size: 1.6rem;
-        padding: 0.8rem 1.5rem;
-        width: 95%;
+        width: 3.2rem;
+        height: 3.2rem;
     }
     
     .theme-toggle {
-        top: 0.7rem;
-        right: 4rem;
         width: 3.2rem;
         height: 3.2rem;
         font-size: 1.5rem;
+    }
+    
+    .header-actions {
+        gap: 0.5rem;
     }
 }
 
@@ -294,16 +306,11 @@
     
     #menu-icon {
         font-size: 2.2rem;
-    }
-    
-    .navbar a {
-        font-size: 1.5rem;
-        padding: 0.7rem 1.3rem;
+        width: 3rem;
+        height: 3rem;
     }
     
     .theme-toggle {
-        top: 0.6rem;
-        right: 3.5rem;
         width: 3rem;
         height: 3rem;
         font-size: 1.4rem;
@@ -370,32 +377,5 @@ body.menu-open {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Ensure proper spacing between logo and menu */
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-/* Fix for mobile menu alignment */
-@media (max-width: 991px) {
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo {
-        flex: 1;
-    }
-    
-    .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
     }
 }

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Navigation
     initEnhancedNavigation();
     
-    // Dark/Light Mode Toggle - FIXED
+    // Dark/Light Mode Toggle - FIXED FOR MOBILE
     initThemeToggle();
     
     // Back to Top Button
@@ -67,7 +67,7 @@ function initTypingAnimation() {
     setTimeout(type, 1000);
 }
 
-// Scroll Animations with Intersection Observer - UPDATED
+// Scroll Animations with Intersection Observer
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
         '.services-box, .project-box, .testimonial-item, .about-content, .about-img'
@@ -92,7 +92,7 @@ function initScrollAnimations() {
     });
 }
 
-// Enhanced Navigation with Active State - FIXED
+// Enhanced Navigation with Active State
 function initEnhancedNavigation() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a');
@@ -142,21 +142,34 @@ function initEnhancedNavigation() {
     highlightNav();
 }
 
-// Dark/Light Mode Toggle - FIXED VERSION
+// Dark/Light Mode Toggle - FIXED FOR MOBILE
 function initThemeToggle() {
     // Create theme toggle button
     const themeToggle = document.createElement('button');
     themeToggle.innerHTML = '<i class="bx bx-moon"></i>';
     themeToggle.className = 'theme-toggle';
     themeToggle.setAttribute('aria-label', 'Toggle dark/light mode');
+    themeToggle.setAttribute('title', 'Toggle theme');
     
-    // Add to header
+    // Add to header actions for proper positioning
     const header = document.querySelector('.header');
-    if (header) {
-        header.appendChild(themeToggle);
+    let headerActions = document.querySelector('.header-actions');
+    
+    if (!headerActions) {
+        headerActions = document.createElement('div');
+        headerActions.className = 'header-actions';
+        header.appendChild(headerActions);
     }
     
-    // Check for saved theme preference or default to dark
+    // Insert before menu icon for better mobile layout
+    const menuIcon = document.querySelector('#menu-icon');
+    if (menuIcon && menuIcon.parentElement === headerActions) {
+        headerActions.insertBefore(themeToggle, menuIcon);
+    } else {
+        headerActions.appendChild(themeToggle);
+    }
+    
+    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
@@ -164,7 +177,10 @@ function initThemeToggle() {
     // Apply theme
     applyTheme(currentTheme);
     
-    themeToggle.addEventListener('click', function() {
+    // Theme toggle click event
+    themeToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
         const currentTheme = document.body.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
@@ -172,17 +188,33 @@ function initThemeToggle() {
         localStorage.setItem('theme', newTheme);
     });
     
+    // Apply theme function
     function applyTheme(theme) {
         document.body.setAttribute('data-theme', theme);
         updateThemeIcon(theme);
+        
+        // Add transition class for smooth change
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+        }, 300);
     }
     
+    // Update theme icon
     function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
         if (icon) {
             icon.className = theme === 'dark' ? 'bx bx-moon' : 'bx bx-sun';
         }
     }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            applyTheme(newTheme);
+        }
+    });
 }
 
 // Back to Top Button
@@ -220,12 +252,12 @@ function initFormValidation() {
     inputs.forEach(input => {
         // Add focus effects
         input.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
+            this.classList.add('focused');
         });
         
         input.addEventListener('blur', function() {
             if (!this.value) {
-                this.parentElement.classList.remove('focused');
+                this.classList.remove('focused');
             }
             validateField(this);
         });

@@ -16,16 +16,41 @@
       }
 
       .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+        display: flex !important;
+        align-items: center !important;
+        gap: 1rem !important;
       }
+
+      .theme-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* HAPUS ATAU COMMENT BAGIAN INI:
+    #menu-icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    */
 
       /* Ensure proper mobile layout */
       @media (max-width: 991px) {
         .logo {
           flex: 1;
           text-align: left;
+        }
+
+        .header-actions {
+          margin-left: auto !important;
+        }
+
+        /* TAMBAHKAN INI: */
+        #menu-icon {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
         }
       }
     </style>
@@ -37,7 +62,6 @@
 
   <body>
     <!-- header section code -->
-
     <header class="header">
       <a href="#home" class="logo">MOCH. RASYA IRGIAWAN</a>
 
@@ -52,8 +76,8 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
     </header>
-    <!-- Home Section Code -->
 
+    <!-- Home Section Code -->
     <section class="home" id="home">
       <div class="home-img">
         <img src="assets/3.jpg" alt="Profile Image" />
@@ -73,15 +97,16 @@
         <div class="social-media">
           <a
             href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
             ><i class="bx bxl-linkedin"></i
           ></a>
-          <a href="https://github.com/Rasyairgiawan"
+          <a href="https://github.com/Rasyairgiawan" target="_blank"
             ><i class="bx bxl-github"></i
           ></a>
-          <a href="https://www.facebook.com/rasya.691143"
+          <a href="https://www.facebook.com/rasya.691143" target="_blank"
             ><i class="bx bxl-facebook"></i
           ></a>
-          <a href="https://www.instagram.com/rasyairgiawan/"
+          <a href="https://www.instagram.com/rasyairgiawan/" target="_blank"
             ><i class="bx bxl-instagram"></i
           ></a>
         </div>
@@ -89,8 +114,7 @@
       </div>
     </section>
 
-    <!-- about section code  -->
-
+    <!-- about section code -->
     <section class="about" id="about">
       <div class="about-main">
         <div class="about-content">
@@ -116,7 +140,7 @@
         </div>
       </div>
 
-      <!-- Enhanced Features - NOW PROPERLY POSITIONED -->
+      <!-- Enhanced Features -->
       <div class="enhanced-features" id="enhancedFeatures">
         <div class="stats-container">
           <div class="stat-item">
@@ -233,8 +257,7 @@
       </div>
     </section>
 
-    <!-- servise section code -->
-
+    <!-- service section code -->
     <section class="services" id="services">
       <h2 class="heading">My <span>Services</span></h2>
 
@@ -472,12 +495,11 @@
     </div>
 
     <!-- Projects Section -->
-
     <section class="projects" id="projects">
       <h2 class="heading">My <span>Projects</span></h2>
       <div class="projects-container">
         <div class="project-box">
-          <img src="assets/TaskManagerApp.png" alt="E-Commerce Website" />
+          <img src="assets/TaskManagerApp.png" alt="Task Manager App" />
           <div class="project-layer">
             <h4>Task Manager App</h4>
             <p>
@@ -493,8 +515,9 @@
               <a
                 href="https://task-manager-app-bice-nine.vercel.app"
                 target="_blank"
-                ><i class="bx bx-link-external"></i
-              ></a>
+              >
+                <i class="bx bx-link-external"></i>
+              </a>
               <a href="#"><i class="bx bxl-github"></i></a>
             </div>
           </div>
@@ -524,7 +547,10 @@
         </div>
 
         <div class="project-box">
-          <img src="assets/project3.jpg" alt="Company Profile Website" />
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Company Profile Website"
+          />
           <div class="project-layer">
             <h4>Company Profile Website</h4>
             <p>
@@ -544,7 +570,10 @@
         </div>
 
         <div class="project-box">
-          <img src="assets/project4.jpg" alt="Task Management App" />
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Task Management App"
+          />
           <div class="project-layer">
             <h4>Task Management App</h4>
             <p>
@@ -564,7 +593,10 @@
         </div>
 
         <div class="project-box">
-          <img src="assets/project5.jpg" alt="Food Delivery App" />
+          <img
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Food Delivery App"
+          />
           <div class="project-layer">
             <h4>Food Delivery App</h4>
             <p>
@@ -584,7 +616,10 @@
         </div>
 
         <div class="project-box">
-          <img src="assets/project6.jpg" alt="Portfolio Website" />
+          <img
+            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Portfolio Website"
+          />
           <div class="project-layer">
             <h4>Portfolio Website</h4>
             <p>
@@ -605,15 +640,13 @@
     </section>
 
     <!-- Testimonial Section -->
-
     <section class="testimonial" id="testimonial">
       <div class="testimonial-box">
         <h2 class="heading">Testimonials</h2>
 
         <div class="wrapper">
           <div class="testimonial-item">
-            <img src="assets/ngab owi.jpg" alt />
-
+            <img src="assets/ngab owi.jpg" alt="Jokowi" />
             <h2>Jokowi</h2>
             <div class="rating">
               <i class="bx bxs-star" id="star"></i>
@@ -630,8 +663,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/sungeng.jpg" alt />
-
+            <img src="assets/sungeng.jpg" alt="Sugeng" />
             <h2>Sugeng</h2>
             <div class="rating">
               <i class="bx bxs-star" id="star"></i>
@@ -648,8 +680,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/jepri.jpg" alt />
-
+            <img src="assets/jepri.jpg" alt="Jefri Nichol" />
             <h2>Jefri Nichol</h2>
             <div class="rating">
               <i class="bx bxs-star" id="star"></i>
@@ -669,49 +700,48 @@
     </section>
 
     <!-- Contact Section -->
-
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me</span></h2>
 
       <form action="#">
         <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="number" placeholder="Phone Number" />
+          <input type="text" placeholder="Full Name" required />
+          <input type="tel" placeholder="Phone Number" />
         </div>
         <div class="input-box">
-          <input type="email" name="Email" placeholder="Email Address" />
+          <input type="email" placeholder="Email Address" required />
           <input type="text" placeholder="Email Subject" />
         </div>
         <textarea
           name="message"
-          id
           cols="30"
           rows="10"
           placeholder="Your Message"
+          required
         ></textarea>
         <input type="submit" value="Send Message" class="btn" />
       </form>
     </section>
 
     <!-- Footer Section Code -->
-
     <footer class="footer">
       <div class="social">
         <a
           href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank"
           ><i class="bx bxl-linkedin"></i
         ></a>
-        <a href="https://github.com/Rasyairgiawan"
+        <a href="https://github.com/Rasyairgiawan" target="_blank"
           ><i class="bx bxl-github"></i
         ></a>
-        <a href="https://www.facebook.com/rasya.691143"
+        <a href="https://www.facebook.com/rasya.691143" target="_blank"
           ><i class="bx bxl-facebook"></i
         ></a>
-        <a href="https://www.instagram.com/rasyairgiawan/"
+        <a href="https://www.instagram.com/rasyairgiawan/" target="_blank"
           ><i class="bx bxl-instagram"></i
         ></a>
       </div>
-      <p class="copyright">&copy;Rasya irgiawan - All Rights Reserved</p>
+      <p class="copyright">&copy; 2023 Rasya Irgiawan - All Rights Reserved</p>
     </footer>
 
     <script src="javascript/about.js"></script>
