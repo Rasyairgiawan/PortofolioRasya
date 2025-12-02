@@ -16,41 +16,16 @@
       }
 
       .header-actions {
-        display: flex !important;
-        align-items: center !important;
-        gap: 1rem !important;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
-
-      .theme-toggle {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-
-      /* HAPUS ATAU COMMENT BAGIAN INI:
-    #menu-icon {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    */
 
       /* Ensure proper mobile layout */
       @media (max-width: 991px) {
         .logo {
           flex: 1;
           text-align: left;
-        }
-
-        .header-actions {
-          margin-left: auto !important;
-        }
-
-        /* TAMBAHKAN INI: */
-        #menu-icon {
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
         }
       }
     </style>
@@ -61,6 +36,39 @@
   </head>
 
   <body>
+    <!-- Page Transition Overlay dengan Loading Modern -->
+    <div class="page-transition" id="pageTransition">
+      <div class="loading-container">
+        <div class="loading-logo">RASYA JR</div>
+        <div class="loading-text">LOADING</div>
+        
+        <div class="modern-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+        </div>
+        
+        <div class="loading-progress">
+          <div class="loading-progress-bar"></div>
+        </div>
+        
+        <div class="loading-dots">
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+        </div>
+        
+        <div class="percentage-counter">0%</div>
+      </div>
+      
+      <div class="holographic-effect"></div>
+      <div class="particle-container" id="particleContainer"></div>
+    </div>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- header section code -->
     <header class="header">
       <a href="#home" class="logo">MOCH. RASYA IRGIAWAN</a>
@@ -78,7 +86,7 @@
     </header>
 
     <!-- Home Section Code -->
-    <section class="home" id="home">
+    <section class="home section-transition" id="home">
       <div class="home-img">
         <img src="assets/3.jpg" alt="Profile Image" />
       </div>
@@ -115,7 +123,7 @@
     </section>
 
     <!-- about section code -->
-    <section class="about" id="about">
+    <section class="about section-transition" id="about">
       <div class="about-main">
         <div class="about-content">
           <h2 class="heading">About <span>Me</span></h2>
@@ -258,7 +266,7 @@
     </section>
 
     <!-- service section code -->
-    <section class="services" id="services">
+    <section class="services section-transition" id="services">
       <h2 class="heading">My <span>Services</span></h2>
 
       <div class="services-container">
@@ -495,7 +503,7 @@
     </div>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <section class="projects section-transition" id="projects">
       <h2 class="heading">My <span>Projects</span></h2>
       <div class="projects-container">
         <div class="project-box">
@@ -524,15 +532,11 @@
         </div>
 
         <div class="project-box">
-          <img
-            src="assets/Screenshot 2025-11-21 181253.png"
-            alt="Mobile Banking App"
-          />
+          <img src="assets/HajiRasya.png" alt="Mobile Banking App" />
           <div class="project-layer">
-            <h4>Mobile Banking App</h4>
+            <h4>Cek Khodam</h4>
             <p>
-              Aplikasi mobile banking dengan fitur transfer, pembayaran, dan
-              investasi
+              website cek khodam dengan fitur prediksi dan konsultasi online
             </p>
             <div class="project-tech">
               <span>Flutter</span>
@@ -594,7 +598,7 @@
 
         <div class="project-box">
           <img
-            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16381272-0eb9-403c-8462-03b04dc44a6e_brand-image_1762709942036.jpg"
             alt="Food Delivery App"
           />
           <div class="project-layer">
@@ -640,7 +644,7 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="testimonial" id="testimonial">
+    <section class="testimonial section-transition" id="testimonial">
       <div class="testimonial-box">
         <h2 class="heading">Testimonials</h2>
 
@@ -700,7 +704,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact section-transition" id="contact">
       <h2 class="heading">Contact <span>Me</span></h2>
 
       <form action="#">
@@ -748,5 +752,6 @@
     <script src="javascript/navbar.js"></script>
     <script src="javascript/modal.js"></script>
     <script src="javascript/enhanced.js"></script>
+    <script src="javascript/page-transitions.js"></script>
   </body>
 </html>

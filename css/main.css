@@ -1,3 +1,7 @@
+/* Import enhanced.css FIRST untuk set theme */
+@import url("enhanced.css");
+
+/* Kemudian import lainnya */
 @import url("about.css");
 @import url("projects.css");
 @import url("home.css");
@@ -7,4 +11,3 @@
 @import url("responsive.css");
 @import url("services.css");
 @import url("testimonial.css");
-@import url("enhanced.css");

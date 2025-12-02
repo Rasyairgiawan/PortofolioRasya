@@ -39,11 +39,15 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
   </head>
 
   <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition"></div>
     
-    <!-- header section code -->
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- header section code -->
     <header class="header">
-      <a href="#home" class="logo">Rasyairgiawan</a>
+      <a href="#home" class="logo">MOCH. RASYA IRGIAWAN</a>
 
       <i class="bx bx-menu" id="menu-icon"></i>
 
@@ -56,17 +60,16 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
     </header>
-    
-    <!-- Home Section Code -->
 
-    <section class="home" id="home">
+    <!-- Home Section Code -->
+    <section class="home section-transition" id="home">
       <div class="home-img">
         <img src="assets/3.jpg" alt="Profile Image" />
       </div>
 
       <div class="home-content">
         <h3>Hello, MySelf</h3>
-        <h1>Moch Rasya Irgiawan</h1>
+        <h1>Rasya Irgiawan</h1>
         <h3>And I'm <span class="multiple-text">Full-Stack Developer</span></h3>
         <p>
           Saya memiliki pengalaman dalam membangun website responsif menggunakan
@@ -78,15 +81,16 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
         <div class="social-media">
           <a
             href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
             ><i class="bx bxl-linkedin"></i
           ></a>
-          <a href="https://github.com/Rasyairgiawan"
+          <a href="https://github.com/Rasyairgiawan" target="_blank"
             ><i class="bx bxl-github"></i
           ></a>
-          <a href="https://www.facebook.com/rasya.691143"
+          <a href="https://www.facebook.com/rasya.691143" target="_blank"
             ><i class="bx bxl-facebook"></i
           ></a>
-          <a href="https://www.instagram.com/rasyairgiawan/"
+          <a href="https://www.instagram.com/rasyairgiawan/" target="_blank"
             ><i class="bx bxl-instagram"></i
           ></a>
         </div>
@@ -94,9 +98,8 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
       </div>
     </section>
 
-    <!-- about section code  -->
-
-    <section class="about" id="about">
+    <!-- about section code -->
+    <section class="about section-transition" id="about">
       <div class="about-main">
         <div class="about-content">
           <h2 class="heading">About <span>Me</span></h2>
@@ -121,7 +124,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
         </div>
       </div>
 
-      <!-- Enhanced Features - NOW PROPERLY POSITIONED -->
+      <!-- Enhanced Features -->
       <div class="enhanced-features" id="enhancedFeatures">
         <div class="stats-container">
           <div class="stat-item">
@@ -238,9 +241,8 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
       </div>
     </section>
 
-    <!-- servise section code -->
-
-    <section class="services" id="services">
+    <!-- service section code -->
+    <section class="services section-transition" id="services">
       <h2 class="heading">My <span>Services</span></h2>
 
       <div class="services-container">
@@ -476,10 +478,10 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
       </div>
     </div>
 
-    <section class="projects" id="projects">
+    <!-- Projects Section -->
+    <section class="projects section-transition" id="projects">
       <h2 class="heading">My <span>Projects</span></h2>
       <div class="projects-container">
-        <!-- Project 1: Task Manager App (Tetap Sama) -->
         <div class="project-box">
           <img src="assets/TaskManagerApp.png" alt="Task Manager App" />
           <div class="project-layer">
@@ -497,26 +499,25 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
               <a
                 href="https://task-manager-app-bice-nine.vercel.app"
                 target="_blank"
-                ><i class="bx bx-link-external"></i
-              ></a>
+              >
+                <i class="bx bx-link-external"></i>
+              </a>
               <a href="#"><i class="bx bxl-github"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Project 2: Cek Khodam (Tetap Sama) -->
         <div class="project-box">
-          <img src="assets/HajiRasya.png" alt="Cek Khodam App" />
+          <img src="assets/HajiRasya.png" alt="Mobile Banking App" />
           <div class="project-layer">
             <h4>Cek Khodam</h4>
             <p>
-              Aplikasi mobile banking dengan fitur transfer, pembayaran, dan
-              investasi
+              website cek khodam dengan fitur prediksi dan konsultasi online
             </p>
             <div class="project-tech">
-              <span>JavaScript</span>
-              <span>HTML</span>
-              <span>CSS</span>
+              <span>Flutter</span>
+              <span>Firebase</span>
+              <span>REST API</span>
             </div>
             <div class="project-links">
               <a href="#"><i class="bx bx-link-external"></i></a>
@@ -525,7 +526,6 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           </div>
         </div>
 
-        <!-- Project 3: Company Profile (Gambar dari Google) -->
         <div class="project-box">
           <img
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -549,7 +549,6 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           </div>
         </div>
 
-        <!-- Project 4: Task Management App (Gambar dari Google) -->
         <div class="project-box">
           <img
             src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -573,10 +572,9 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           </div>
         </div>
 
-        <!-- Project 5: Food Delivery App (Gambar dari Google) -->
         <div class="project-box">
           <img
-            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16381272-0eb9-403c-8462-03b04dc44a6e_brand-image_1762709942036.jpg"
             alt="Food Delivery App"
           />
           <div class="project-layer">
@@ -597,7 +595,6 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           </div>
         </div>
 
-        <!-- Project 6: Portfolio Website (Gambar dari Google) -->
         <div class="project-box">
           <img
             src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -623,15 +620,13 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
     </section>
 
     <!-- Testimonial Section -->
-
-    <section class="testimonial" id="testimonial">
+    <section class="testimonial section-transition" id="testimonial">
       <div class="testimonial-box">
         <h2 class="heading">Testimonials</h2>
 
         <div class="wrapper">
           <div class="testimonial-item">
-            <img src="assets/ngab owi.jpg" alt />
-
+            <img src="assets/ngab owi.jpg" alt="Jokowi" />
             <h2>Jokowi</h2>
             <div class="rating">
               <i class="bx bxs-star" id="star"></i>
@@ -648,8 +643,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/sungeng.jpg" alt />
-
+            <img src="assets/sungeng.jpg" alt="Sugeng" />
             <h2>Sugeng</h2>
             <div class="rating">
               <i class="bx bxs-star" id="star"></i>
@@ -666,8 +660,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/jepri.jpg" alt />
-
+            <img src="assets/jepri.jpg" alt="Jefri Nichol" />
             <h2>Jefri Nichol</h2>
             <div class="rating">
               <i class="bx bxs-star" id="star"></i>
@@ -687,68 +680,62 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
     </section>
 
     <!-- Contact Section -->
-
-    <section class="contact" id="contact">
+    <section class="contact section-transition" id="contact">
       <h2 class="heading">Contact <span>Me</span></h2>
 
       <form action="#">
         <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="number" placeholder="Phone Number" />
+          <input type="text" placeholder="Full Name" required />
+          <input type="tel" placeholder="Phone Number" />
         </div>
         <div class="input-box">
-          <input type="email" name="Email" placeholder="Email Address" />
+          <input type="email" placeholder="Email Address" required />
           <input type="text" placeholder="Email Subject" />
         </div>
         <textarea
           name="message"
-          id
           cols="30"
           rows="10"
           placeholder="Your Message"
+          required
         ></textarea>
         <input type="submit" value="Send Message" class="btn" />
       </form>
     </section>
 
     <!-- Footer Section Code -->
-
     <footer class="footer">
       <div class="social">
         <a
           href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank"
           ><i class="bx bxl-linkedin"></i
         ></a>
-        <a href="https://github.com/Rasyairgiawan"
+        <a href="https://github.com/Rasyairgiawan" target="_blank"
           ><i class="bx bxl-github"></i
         ></a>
-        <a href="https://www.facebook.com/rasya.691143"
+        <a href="https://www.facebook.com/rasya.691143" target="_blank"
           ><i class="bx bxl-facebook"></i
         ></a>
-        <a href="https://www.instagram.com/rasyairgiawan/"
+        <a href="https://www.instagram.com/rasyairgiawan/" target="_blank"
           ><i class="bx bxl-instagram"></i
         ></a>
       </div>
-      <p class="copyright">&copy;Rasya irgiawan - All Rights Reserved</p>
+      <p class="copyright">&copy; 2023 Rasya Irgiawan - All Rights Reserved</p>
     </footer>
 
     <script src="javascript/about.js"></script>
     <script src="javascript/navbar.js"></script>
     <script src="javascript/modal.js"></script>
     <script src="javascript/enhanced.js"></script>
+    <script src="javascript/page-transitions.js"></script>
   </body>
-</html>
- 
+</html> 
  
 ============================== 
 FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\about.css 
 ============================== 
- :root {
-     --bg-color: #1f242d;
-     --snd-bg-color: #323946;
-     --text-color: #fff;
-     --main-color: #0ef;
- }
+/* HAPUS deklarasi :root di sini, gunakan dari enhanced.css */
 
  * {
      margin: 0;
@@ -756,11 +743,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\about.css
      box-sizing: border-box;
  }
 
- body {
-     background: var(--bg-color);
-     color: var(--text-color);
-     font-family: 'Poppins', sans-serif;
- }
+ /* Body styles sudah diatur di enhanced.css */
 
  /* About Section - FIXED STRUCTURE */
  .about {
@@ -1197,6 +1180,10 @@ body {
     background: var(--main-color) !important;
 }
 
+.navbar {
+    background: var(--main-color) !important;
+}
+
 .navbar a {
     color: var(--bg-color) !important;
 }
@@ -1205,16 +1192,30 @@ body {
     color: var(--bg-color) !important;
 }
 
-/* Theme toggle colors */
+/* Theme toggle colors - FIXED FOR MOBILE */
 .theme-toggle {
-    background: var(--bg-color);
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
+    background: var(--bg-color) !important;
+    color: var(--main-color) !important;
+    border: 2px solid var(--main-color) !important;
+    z-index: 1002 !important;
 }
 
 .theme-toggle:hover {
-    background: var(--main-color);
-    color: var(--bg-color);
+    background: var(--main-color) !important;
+    color: var(--bg-color) !important;
+}
+
+/* Mobile menu theme fixes */
+@media (max-width: 991px) {
+    .navbar a {
+        color: var(--bg-color) !important;
+    }
+    
+    .navbar a:hover,
+    .navbar a.active {
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--bg-color) !important;
+    }
 }
 
 /* Back to Top Button */
@@ -1302,8 +1303,8 @@ img.error {
     position: relative;
 }
 
-.contact form .input-box.focused input,
-.contact form .input-box.focused textarea {
+.contact form input.focused,
+.contact form textarea.focused {
     border-color: var(--main-color);
     box-shadow: 0 0 10px var(--main-color);
 }
@@ -1367,6 +1368,210 @@ img.error {
     }
 }
 
+/* ==================== PAGE TRANSITION ANIMATIONS ==================== */
+
+/* Page Transition Animations */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--main-color);
+    z-index: 9999;
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+                opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-transition.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--main-color);
+    z-index: 10000;
+    transition: width 0.3s ease;
+}
+
+/* Section Transitions */
+.section-transition {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-transition.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animations for content */
+.animated {
+    animation-fill-mode: both;
+}
+
+/* Fade In Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Additional animations for page transitions */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+/* Loading spinner for page transitions */
+.page-transition::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Body state for transitions */
+body.page-changing {
+    overflow: hidden;
+}
+
+/* Section enter animations based on scroll direction */
+[data-scroll-direction="down"] .section-transition.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+[data-scroll-direction="up"] .section-transition.animate-in {
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+/* Active section indicator */
+section:target {
+    animation: pulseHighlight 1s ease;
+}
+
+@keyframes pulseHighlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(14, 239, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(14, 239, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(14, 239, 255, 0);
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Smooth theme transition */
+.theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
 /* Responsive Enhancements */
 @media (max-width: 768px) {
     .back-to-top {
@@ -1376,13 +1581,21 @@ img.error {
         bottom: 2rem;
         right: 2rem;
     }
+    
+    .page-transition::after {
+        width: 50px;
+        height: 50px;
+        margin: -25px 0 0 -25px;
+    }
 }
 
 /* Print Styles */
 @media print {
     .theme-toggle,
     .back-to-top,
-    .social-media {
+    .social-media,
+    .page-transition,
+    .scroll-progress {
         display: none !important;
     }
 } 
@@ -1448,7 +1661,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 9%;
-    background: var(--main-color);
+    background: var(--main-color) !important;
     transition: all 0.3s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     min-height: 70px;
@@ -1456,7 +1669,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
 
 .logo {
     font-size: 2.2rem;
-    color: var(--bg-color);
+    color: var(--bg-color) !important;
     font-weight: 800;
     cursor: pointer;
     transition: 0.3s ease;
@@ -1479,7 +1692,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
 
 .navbar a {
     font-size: 1.6rem;
-    color: var(--bg-color);
+    color: var(--bg-color) !important;
     font-weight: 600;
     transition: 0.3s ease;
     text-decoration: none;
@@ -1491,7 +1704,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
 
 .navbar a:hover,
 .navbar a.active {
-    color: var(--text-color);
+    color: var(--text-color) !important;
     background: rgba(255, 255, 255, 0.15);
 }
 
@@ -1512,38 +1725,57 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     width: 70%;
 }
 
-/* Menu Icon - Hidden on Desktop */
+/* Menu Icon - HIDDEN DI DESKTOP DEFAULT */
 #menu-icon {
     font-size: 3.2rem;
     color: var(--bg-color);
     cursor: pointer;
-    display: none;
+    display: none; /* DEFAULT: HIDDEN DI SEMUA DEVICE */
     transition: 0.3s ease;
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Theme Toggle Button */
+/* Tampilkan menu icon HANYA di mobile */
+@media (max-width: 991px) {
+    #menu-icon {
+        display: flex !important; /* TAMPIL HANYA DI MOBILE */
+    }
+}
+
+/* Theme Toggle Button - FIXED */
 .theme-toggle {
-    background: var(--bg-color);
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    width: 4.5rem;
-    height: 4.5rem;
+    background: var(--bg-color) !important;
+    color: var(--main-color) !important;
+    border: 2px solid var(--main-color) !important;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.8rem;
     transition: all 0.3s ease;
     box-shadow: 0 0 1rem var(--main-color);
-    margin-left: 1.5rem;
     flex-shrink: 0;
+    z-index: 1002;
 }
 
 .theme-toggle:hover {
     transform: scale(1.1);
-    background: var(--main-color);
-    color: var(--bg-color);
+    background: var(--main-color) !important;
+    color: var(--bg-color) !important;
+}
+
+/* Header Actions Container */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1001;
 }
 
 /* ==================== MOBILE STYLES ==================== */
@@ -1557,10 +1789,11 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     .logo {
         font-size: 2rem;
         z-index: 1001;
+        flex: 1;
     }
     
     #menu-icon {
-        display: block;
+        display: flex !important;
         z-index: 1001;
         font-size: 3rem;
     }
@@ -1572,7 +1805,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
         left: -100%;
         width: 100%;
         height: 100vh;
-        background: var(--main-color);
+        background: var(--main-color) !important;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -1588,7 +1821,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     
     .navbar a {
         font-size: 2.2rem;
-        color: var(--bg-color);
+        color: var(--bg-color) !important;
         padding: 1.2rem 2.5rem;
         border-radius: 1rem;
         text-align: center;
@@ -1601,7 +1834,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     .navbar a:hover,
     .navbar a.active {
         background: rgba(255, 255, 255, 0.2);
-        color: var(--bg-color);
+        color: var(--bg-color) !important;
         border-color: var(--bg-color);
         transform: scale(1.05);
     }
@@ -1611,14 +1844,17 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     }
     
     .theme-toggle {
-        position: fixed;
-        top: 1.2rem;
-        right: 6rem;
+        display: flex !important;
+        position: static !important;
         z-index: 1001;
-        margin-left: 0;
-        width: 4rem;
-        height: 4rem;
-        font-size: 1.8rem;
+        margin: 0 !important;
+    }
+    
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: auto;
     }
 }
 
@@ -1635,20 +1871,18 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     
     #menu-icon {
         font-size: 2.8rem;
-    }
-    
-    .navbar a {
-        font-size: 2rem;
-        padding: 1rem 2rem;
-        width: 85%;
+        width: 3.8rem;
+        height: 3.8rem;
     }
     
     .theme-toggle {
-        top: 1rem;
-        right: 5rem;
         width: 3.8rem;
         height: 3.8rem;
         font-size: 1.7rem;
+    }
+    
+    .header-actions {
+        gap: 0.8rem;
     }
 }
 
@@ -1665,25 +1899,18 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     
     #menu-icon {
         font-size: 2.6rem;
-    }
-    
-    .navbar {
-        gap: 1rem;
-        padding: 1.5rem;
-    }
-    
-    .navbar a {
-        font-size: 1.8rem;
-        padding: 0.9rem 1.8rem;
-        width: 90%;
+        width: 3.5rem;
+        height: 3.5rem;
     }
     
     .theme-toggle {
-        top: 0.8rem;
-        right: 4.5rem;
         width: 3.5rem;
         height: 3.5rem;
         font-size: 1.6rem;
+    }
+    
+    .header-actions {
+        gap: 0.6rem;
     }
 }
 
@@ -1703,20 +1930,18 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     
     #menu-icon {
         font-size: 2.4rem;
-    }
-    
-    .navbar a {
-        font-size: 1.6rem;
-        padding: 0.8rem 1.5rem;
-        width: 95%;
+        width: 3.2rem;
+        height: 3.2rem;
     }
     
     .theme-toggle {
-        top: 0.7rem;
-        right: 4rem;
         width: 3.2rem;
         height: 3.2rem;
         font-size: 1.5rem;
+    }
+    
+    .header-actions {
+        gap: 0.5rem;
     }
 }
 
@@ -1733,16 +1958,11 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\header.css
     
     #menu-icon {
         font-size: 2.2rem;
-    }
-    
-    .navbar a {
-        font-size: 1.5rem;
-        padding: 0.7rem 1.3rem;
+        width: 3rem;
+        height: 3rem;
     }
     
     .theme-toggle {
-        top: 0.6rem;
-        right: 3.5rem;
         width: 3rem;
         height: 3rem;
         font-size: 1.4rem;
@@ -1810,33 +2030,6 @@ body.menu-open {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Ensure proper spacing between logo and menu */
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-/* Fix for mobile menu alignment */
-@media (max-width: 991px) {
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo {
-        flex: 1;
-    }
-    
-    .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
 } 
  
 ============================== 
@@ -1853,22 +2046,15 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\home.css
     font-family: -apple-system, sans-serif;
 }
 
-:root {
-    --bg-color: #fff;
-    --snd-bg-color: #d5fdf9;
-    --text-color: #000;
-    --main-color: #0a305a;
-}
+/* HAPUS deklarasi :root di sini, gunakan dari enhanced.css */
+/* Variabel CSS sudah diatur di enhanced.css */
 
 html {
     font-size: 62.5%;
     overflow-x: hidden;
 }
 
-body {
-    background: var(--bg-color);
-    color: var(--text-color);
-}
+/* Body styles sudah diatur di enhanced.css */
 
 section {
     min-height: 100vh;
@@ -1928,7 +2114,6 @@ section {
 
 span {
     color: var(--main-color);
-
     font-weight: bold;
     font-family: sans-serif;
     font-size: 700;
@@ -1988,13 +2173,15 @@ span {
 
 .btn:hover {
     box-shadow: 0 0 1.6rem var(--main-color);
-}
-
- 
+} 
  
 ============================== 
 FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\main.css 
 ============================== 
+/* Import enhanced.css FIRST untuk set theme */
+@import url("enhanced.css");
+
+/* Kemudian import lainnya */
 @import url("about.css");
 @import url("projects.css");
 @import url("home.css");
@@ -2003,8 +2190,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\main.css
 @import url("footer.css");
 @import url("responsive.css");
 @import url("services.css");
-@import url("testimonial.css");
-@import url("enhanced.css"); 
+@import url("testimonial.css"); 
  
 ============================== 
 FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\projects.css 
@@ -3561,7 +3747,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Navigation
     initEnhancedNavigation();
     
-    // Dark/Light Mode Toggle - FIXED
+    // Dark/Light Mode Toggle - FIXED FOR MOBILE
     initThemeToggle();
     
     // Back to Top Button
@@ -3617,7 +3803,7 @@ function initTypingAnimation() {
     setTimeout(type, 1000);
 }
 
-// Scroll Animations with Intersection Observer - UPDATED
+// Scroll Animations with Intersection Observer
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
         '.services-box, .project-box, .testimonial-item, .about-content, .about-img'
@@ -3642,7 +3828,7 @@ function initScrollAnimations() {
     });
 }
 
-// Enhanced Navigation with Active State - FIXED
+// Enhanced Navigation with Active State
 function initEnhancedNavigation() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a');
@@ -3692,21 +3878,34 @@ function initEnhancedNavigation() {
     highlightNav();
 }
 
-// Dark/Light Mode Toggle - FIXED VERSION
+// Dark/Light Mode Toggle - FIXED FOR MOBILE
 function initThemeToggle() {
     // Create theme toggle button
     const themeToggle = document.createElement('button');
     themeToggle.innerHTML = '<i class="bx bx-moon"></i>';
     themeToggle.className = 'theme-toggle';
     themeToggle.setAttribute('aria-label', 'Toggle dark/light mode');
+    themeToggle.setAttribute('title', 'Toggle theme');
     
-    // Add to header
+    // Add to header actions for proper positioning
     const header = document.querySelector('.header');
-    if (header) {
-        header.appendChild(themeToggle);
+    let headerActions = document.querySelector('.header-actions');
+    
+    if (!headerActions) {
+        headerActions = document.createElement('div');
+        headerActions.className = 'header-actions';
+        header.appendChild(headerActions);
     }
     
-    // Check for saved theme preference or default to dark
+    // Insert before menu icon for better mobile layout
+    const menuIcon = document.querySelector('#menu-icon');
+    if (menuIcon && menuIcon.parentElement === headerActions) {
+        headerActions.insertBefore(themeToggle, menuIcon);
+    } else {
+        headerActions.appendChild(themeToggle);
+    }
+    
+    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
@@ -3714,7 +3913,10 @@ function initThemeToggle() {
     // Apply theme
     applyTheme(currentTheme);
     
-    themeToggle.addEventListener('click', function() {
+    // Theme toggle click event
+    themeToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
         const currentTheme = document.body.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
@@ -3722,17 +3924,33 @@ function initThemeToggle() {
         localStorage.setItem('theme', newTheme);
     });
     
+    // Apply theme function
     function applyTheme(theme) {
         document.body.setAttribute('data-theme', theme);
         updateThemeIcon(theme);
+        
+        // Add transition class for smooth change
+        document.body.classList.add('theme-transition');
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition');
+        }, 300);
     }
     
+    // Update theme icon
     function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
         if (icon) {
             icon.className = theme === 'dark' ? 'bx bx-moon' : 'bx bx-sun';
         }
     }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            applyTheme(newTheme);
+        }
+    });
 }
 
 // Back to Top Button
@@ -3770,12 +3988,12 @@ function initFormValidation() {
     inputs.forEach(input => {
         // Add focus effects
         input.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
+            this.classList.add('focused');
         });
         
         input.addEventListener('blur', function() {
             if (!this.value) {
-                this.parentElement.classList.remove('focused');
+                this.classList.remove('focused');
             }
             validateField(this);
         });
@@ -3998,7 +4216,7 @@ document.addEventListener('keydown', function (event) {
 ============================== 
 FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\javascript\navbar.js 
 ============================== 
-// Enhanced Header & Mobile Navigation - FIXED SYMMETRY
+// Enhanced Header & Mobile Navigation - FIXED
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
     const menuIcon = document.querySelector('#menu-icon');
@@ -4012,23 +4230,58 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    // Set initial display based on screen width
+    function setInitialMenuIconDisplay() {
+        if (window.innerWidth > 991) {
+            // Desktop: Sembunyikan menu icon
+            menuIcon.style.display = 'none';
+        } else {
+            // Mobile: Tampilkan menu icon
+            menuIcon.style.display = 'flex';
+        }
+    }
+
     // Create header actions container for better mobile layout
     function createHeaderStructure() {
-        const headerActions = document.createElement('div');
-        headerActions.className = 'header-actions';
+        let headerActions = document.querySelector('.header-actions');
         
-        // Move theme toggle and menu icon into header actions
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            headerActions.appendChild(themeToggle);
+        if (!headerActions) {
+            headerActions = document.createElement('div');
+            headerActions.className = 'header-actions';
+            
+            // Move theme toggle ke header actions
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                headerActions.appendChild(themeToggle);
+            }
+            
+            // Selalu tambah menu icon ke DOM, tapi kontrol display dengan CSS/JS
+            headerActions.appendChild(menuIcon);
+            
+            header.appendChild(headerActions);
         }
-        headerActions.appendChild(menuIcon);
-        
-        header.appendChild(headerActions);
     }
 
     // Initialize header structure
     createHeaderStructure();
+    
+    // Set initial display
+    setInitialMenuIconDisplay();
+
+    // Update menu icon display saat resize
+    function updateMenuIconOnResize() {
+        if (window.innerWidth > 991) {
+            // Desktop: Sembunyikan menu icon dan tutup menu jika terbuka
+            menuIcon.style.display = 'none';
+            closeMenu();
+        } else {
+            // Mobile: Tampilkan menu icon
+            menuIcon.style.display = 'flex';
+        }
+    }
+
+    // Listen for window resize
+    window.addEventListener('resize', updateMenuIconOnResize);
 
     // Header scroll effect
     function handleScroll() {
@@ -4039,27 +4292,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Toggle mobile menu
+    // Toggle mobile menu - HANYA DI MOBILE
     function toggleMenu() {
-        navbar.classList.toggle('active');
-        body.classList.toggle('menu-open');
-        
-        // Change icon with proper animation
-        if (navbar.classList.contains('active')) {
-            menuIcon.classList.remove('bx-menu');
-            menuIcon.classList.add('bx-x');
-        } else {
-            menuIcon.classList.remove('bx-x');
-            menuIcon.classList.add('bx-menu');
+        // Hanya toggle jika di mobile
+        if (window.innerWidth <= 991) {
+            navbar.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            
+            // Change icon with proper animation
+            if (navbar.classList.contains('active')) {
+                menuIcon.classList.remove('bx-menu');
+                menuIcon.classList.add('bx-x');
+            } else {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            }
         }
     }
 
     // Close mobile menu
     function closeMenu() {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
-        menuIcon.classList.add('bx-menu');
-        body.classList.remove('menu-open');
+        if (navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+            if (menuIcon) {
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+            }
+            body.classList.remove('menu-open');
+        }
     }
 
     // Smooth scroll to section
@@ -4103,9 +4363,8 @@ document.addEventListener('DOMContentLoaded', function() {
         highlightActiveSection();
     });
 
-    // Menu icon click
+    // Menu icon click - HANYA JIKA DI MOBILE
     menuIcon.addEventListener('click', function(e) {
-        e.preventDefault();
         e.stopPropagation();
         toggleMenu();
     });
@@ -4118,7 +4377,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             
             // Close mobile menu if open
-            if (window.innerWidth <= 991 && navbar.classList.contains('active')) {
+            if (window.innerWidth <= 991) {
                 closeMenu();
             }
             
@@ -4140,15 +4399,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 991 && 
             navbar.classList.contains('active') &&
             !navbar.contains(e.target) && 
-            e.target !== menuIcon &&
-            !menuIcon.contains(e.target)) {
-            closeMenu();
-        }
-    });
-
-    // Close menu on window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 991 && navbar.classList.contains('active')) {
+            !menuIcon.contains(e.target) &&
+            e.target !== menuIcon) {
             closeMenu();
         }
     });
@@ -4160,10 +4412,270 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Close menu when theme toggle is clicked on mobile
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991 && navbar.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    }
+
     // Initialize
     handleScroll();
     highlightActiveSection();
     
-    console.log('Mobile navigation initialized successfully!');
+    console.log('Navigation initialized successfully!');
+}); 
+ 
+============================== 
+FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\javascript\page-transitions.js 
+============================== 
+// Enhanced Page Transitions with Smooth Animations
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page transitions initialized');
+    
+    const pageTransition = document.getElementById('pageTransition');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar a, .logo');
+    
+    if (!pageTransition) {
+        console.error('Page transition element not found!');
+        return;
+    }
+    
+    // Add scroll progress indicator if not exists
+    let scrollProgress = document.getElementById('scrollProgress');
+    if (!scrollProgress) {
+        scrollProgress = document.createElement('div');
+        scrollProgress.className = 'scroll-progress';
+        scrollProgress.id = 'scrollProgress';
+        document.body.appendChild(scrollProgress);
+    }
+    
+    // Initialize Intersection Observer for section animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                
+                // Add specific animations based on section
+                const sectionId = entry.target.id;
+                animateSectionContent(entry.target, sectionId);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+        section.classList.add('section-transition');
+    });
+    
+    // Enhanced navigation with page transitions
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId.startsWith('#')) return;
+            
+            const targetSection = document.querySelector(targetId);
+            if (!targetSection) return;
+            
+            // Start page transition
+            startPageTransition(() => {
+                // Scroll to target section
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Highlight active navigation
+                updateActiveNav(link);
+                
+                // Animate target section in
+                setTimeout(() => {
+                    targetSection.classList.add('animate-in');
+                    animateSectionContent(targetSection, targetSection.id);
+                    endPageTransition();
+                }, 500);
+            });
+        });
+    });
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+        const currentHash = window.location.hash || '#home';
+        const targetSection = document.querySelector(currentHash);
+        
+        if (targetSection) {
+            startPageTransition(() => {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav based on hash
+                updateActiveNavBasedOnHash(currentHash);
+                
+                setTimeout(() => {
+                    targetSection.classList.add('animate-in');
+                    animateSectionContent(targetSection, targetSection.id);
+                    endPageTransition();
+                }, 500);
+            });
+        }
+    });
+    
+    // Initialize first section
+    const firstSection = document.querySelector('section');
+    if (firstSection) {
+        setTimeout(() => {
+            firstSection.classList.add('animate-in');
+            animateSectionContent(firstSection, firstSection.id);
+        }, 500);
+    }
+    
+    // Scroll progress indicator
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        if (scrollProgress) {
+            scrollProgress.style.width = scrolled + "%";
+        }
+        
+        // Highlight active section on scroll
+        highlightActiveSection();
+    });
+    
+    // Function to start page transition
+    function startPageTransition(callback) {
+        pageTransition.classList.add('active');
+        
+        // Wait for transition to show
+        setTimeout(() => {
+            if (callback) callback();
+        }, 300);
+    }
+    
+    // Function to end page transition
+    function endPageTransition() {
+        setTimeout(() => {
+            pageTransition.classList.remove('active');
+        }, 300);
+    }
+    
+    // Function to update active navigation
+    function updateActiveNav(clickedLink) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        clickedLink.classList.add('active');
+    }
+    
+    // Function to update nav based on URL hash
+    function updateActiveNavBasedOnHash(hash) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === hash) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Function to animate section content with staggered effects
+    function animateSectionContent(section, sectionId) {
+        const elements = section.querySelectorAll('h1, h2, h3, p, .btn, .social-media, .services-box, .project-box, .testimonial-item, .about-content, .about-img');
+        
+        elements.forEach((element, index) => {
+            // Reset animation
+            element.style.animation = '';
+            element.classList.remove('animated');
+            
+            // Add animation with delay
+            setTimeout(() => {
+                element.classList.add('animated');
+                
+                // Apply different animations based on element type
+                if (element.tagName === 'H1' || element.tagName === 'H2') {
+                    element.style.animation = 'fadeInDown 0.8s ease forwards';
+                } else if (element.tagName === 'P') {
+                    element.style.animation = 'fadeInUp 0.8s ease forwards';
+                } else if (element.classList.contains('btn') || element.classList.contains('social-media')) {
+                    element.style.animation = 'scaleIn 0.6s ease forwards';
+                } else if (element.classList.contains('services-box') || element.classList.contains('project-box')) {
+                    element.style.animation = 'fadeInUp 0.8s ease forwards';
+                } else {
+                    element.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            }, index * 100);
+        });
+    }
+    
+    // Smooth scroll for manual scrolling
+    let isScrolling = false;
+    let lastScrollTop = 0;
+    let scrollDirection = 'down';
+    
+    function highlightActiveSection() {
+        if (!isScrolling) {
+            window.requestAnimationFrame(function() {
+                let currentScroll = window.pageYOffset;
+                scrollDirection = currentScroll > lastScrollTop ? 'down' : 'up';
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                
+                // Update scroll direction attribute
+                document.body.setAttribute('data-scroll-direction', scrollDirection);
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (currentScroll >= sectionTop && currentScroll < sectionBottom) {
+                        // Add pulse effect when section comes into view
+                        if (!section.classList.contains('pulse-highlight')) {
+                            section.classList.add('pulse-highlight');
+                            setTimeout(() => {
+                                section.classList.remove('pulse-highlight');
+                            }, 1000);
+                        }
+                        
+                        // Update active nav
+                        updateActiveNavBasedOnHash(`#${section.id}`);
+                    }
+                });
+                
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    }
+    
+    // Initialize
+    highlightActiveSection();
+    
+    // Add CSS for pulse highlight
+    const style = document.createElement('style');
+    style.textContent = `
+        .pulse-highlight {
+            animation: pulseHighlight 1s ease;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    console.log('Page transitions system ready');
 }); 
  

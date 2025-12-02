@@ -1,21 +1,13 @@
- :root {
-     --bg-color: #1f242d;
-     --snd-bg-color: #323946;
-     --text-color: #fff;
-     --main-color: #0ef;
- }
+/* HAPUS deklarasi :root di baris 1-6 */
+/* Gunakan variabel dari enhanced.css */
 
- * {
+* {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
  }
 
- body {
-     background: var(--bg-color);
-     color: var(--text-color);
-     font-family: 'Poppins', sans-serif;
- }
+ /* Body styles sudah diatur di enhanced.css */
 
  /* About Section - FIXED STRUCTURE */
  .about {
