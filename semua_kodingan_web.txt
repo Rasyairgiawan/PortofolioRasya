@@ -39,8 +39,35 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
   </head>
 
   <body>
-    <!-- Page Transition Overlay -->
-    <div class="page-transition" id="pageTransition"></div>
+    <!-- Page Transition Overlay dengan Loading Modern -->
+    <div class="page-transition" id="pageTransition">
+      <div class="loading-container">
+        <div class="loading-logo">RASYA JR</div>
+        <div class="loading-text">LOADING</div>
+        
+        <div class="modern-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+        </div>
+        
+        <div class="loading-progress">
+          <div class="loading-progress-bar"></div>
+        </div>
+        
+        <div class="loading-dots">
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+        </div>
+        
+        <div class="percentage-counter">0%</div>
+      </div>
+      
+      <div class="holographic-effect"></div>
+      <div class="particle-container" id="particleContainer"></div>
+    </div>
     
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -721,7 +748,7 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
           ><i class="bx bxl-instagram"></i
         ></a>
       </div>
-      <p class="copyright">&copy; 2023 Rasya Irgiawan - All Rights Reserved</p>
+      <p class="copyright">&copy; 2025 Rasya Irgiawan - All Rights Reserved</p>
     </footer>
 
     <script src="javascript/about.js"></script>
@@ -735,9 +762,10 @@ FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\index.html
 ============================== 
 FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\css\about.css 
 ============================== 
-/* HAPUS deklarasi :root di sini, gunakan dari enhanced.css */
+/* HAPUS deklarasi :root di baris 1-6 */
+/* Gunakan variabel dari enhanced.css */
 
- * {
+* {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
@@ -1368,28 +1396,30 @@ img.error {
     }
 }
 
-/* ==================== PAGE TRANSITION ANIMATIONS ==================== */
+/* ==================== MODERN LOADING ANIMATIONS ==================== */
 
-/* Page Transition Animations */
+/* Page Transition dengan efek glassmorphism */
 .page-transition {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--main-color);
+    background: rgba(31, 36, 45, 0.95);
+    backdrop-filter: blur(10px);
     z-index: 9999;
-    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    pointer-events: none;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-                opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-transition.active {
-    transform: translateY(0);
     opacity: 1;
-    pointer-events: all;
+    visibility: visible;
 }
 
 /* Scroll Progress Indicator */
@@ -1416,9 +1446,298 @@ img.error {
     transform: translateY(0);
 }
 
-/* Staggered animations for content */
-.animated {
-    animation-fill-mode: both;
+/* Modern Loading Container */
+.loading-container {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    border: 1px solid rgba(14, 239, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+}
+
+/* Text Animation */
+.loading-text {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.loading-text span {
+    display: inline-block;
+    animation: textWave 2s infinite;
+}
+
+.loading-text span:nth-child(1) { animation-delay: 0.1s; }
+.loading-text span:nth-child(2) { animation-delay: 0.2s; }
+.loading-text span:nth-child(3) { animation-delay: 0.3s; }
+.loading-text span:nth-child(4) { animation-delay: 0.4s; }
+.loading-text span:nth-child(5) { animation-delay: 0.5s; }
+.loading-text span:nth-child(6) { animation-delay: 0.6s; }
+.loading-text span:nth-child(7) { animation-delay: 0.7s; }
+.loading-text span:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes textWave {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.5;
+    }
+}
+
+/* Modern Spinner dengan efek gradient */
+.modern-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.spinner-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.spinner-ring:nth-child(1) {
+    border: 4px solid transparent;
+    border-top: 4px solid var(--main-color);
+    border-right: 4px solid var(--main-color);
+    animation: spin 1.5s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+    border: 4px solid rgba(14, 239, 255, 0.2);
+    animation: spin 2s linear infinite reverse;
+}
+
+.spinner-ring:nth-child(3) {
+    border: 4px solid transparent;
+    border-bottom: 4px solid var(--main-color);
+    border-left: 4px solid var(--main-color);
+    animation: spin 2.5s linear infinite;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+}
+
+/* Progress Bar Modern */
+.loading-progress {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        var(--main-color) 0%, 
+        #00ffaa 50%, 
+        var(--main-color) 100%);
+    border-radius: 10px;
+    width: 0%;
+    position: relative;
+    animation: progressFill 2s ease-in-out infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes progressFill {
+    0% {
+        width: 0%;
+        background-position: 200% 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+        background-position: -200% 0;
+    }
+}
+
+/* Loading Dots */
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.loading-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--main-color);
+    animation: dotPulse 1.5s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) { animation-delay: 0s; }
+.loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
+.loading-dot:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(0.5);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Percentage Counter */
+.percentage-counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--main-color);
+    margin-top: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* Logo Animation */
+.loading-logo {
+    font-size: 3rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+    animation: logoGlow 2s infinite alternate;
+    text-shadow: 0 0 20px var(--main-color);
+}
+
+@keyframes logoGlow {
+    from {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Holographic Effect */
+.holographic-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(14, 239, 255, 0.1) 50%, 
+        transparent 70%);
+    animation: hologramMove 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes hologramMove {
+    0% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%);
+    }
+}
+
+/* Particle Animation */
+.particle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--main-color);
+    border-radius: 50%;
+    animation: particleFloat 3s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(var(--tx, 0));
+        opacity: 0;
+    }
+}
+
+/* Additional animations for page transitions */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+/* Loading spinner for page transitions */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Body state for transitions */
+body.page-changing {
+    overflow: hidden;
+}
+
+/* Section enter animations based on scroll direction */
+[data-scroll-direction="down"] .section-transition.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+[data-scroll-direction="up"] .section-transition.animate-in {
+    animation: fadeInDown 0.8s ease forwards;
 }
 
 /* Fade In Animations */
@@ -1477,74 +1796,6 @@ img.error {
     }
 }
 
-/* Additional animations for page transitions */
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-}
-
-@keyframes slideOutLeft {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-}
-
-@keyframes slideOutRight {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-}
-
-/* Loading spinner for page transitions */
-.page-transition::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60px;
-    height: 60px;
-    margin: -30px 0 0 -30px;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #ffffff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Body state for transitions */
-body.page-changing {
-    overflow: hidden;
-}
-
-/* Section enter animations based on scroll direction */
-[data-scroll-direction="down"] .section-transition.animate-in {
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-[data-scroll-direction="up"] .section-transition.animate-in {
-    animation: fadeInDown 0.8s ease forwards;
-}
-
 /* Active section indicator */
 section:target {
     animation: pulseHighlight 1s ease;
@@ -1586,6 +1837,28 @@ html {
         width: 50px;
         height: 50px;
         margin: -25px 0 0 -25px;
+    }
+    
+    .loading-container {
+        padding: 2rem;
+        min-width: 250px;
+    }
+    
+    .modern-spinner {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .loading-text {
+        font-size: 1.5rem;
+    }
+    
+    .percentage-counter {
+        font-size: 2rem;
+    }
+    
+    .loading-logo {
+        font-size: 2.5rem;
     }
 }
 
@@ -4432,13 +4705,17 @@ document.addEventListener('DOMContentLoaded', function() {
 ============================== 
 FILE: E:\RASYA BELAJAR CODING\RasyaPortofolio\javascript\page-transitions.js 
 ============================== 
-// Enhanced Page Transitions with Smooth Animations
+// Enhanced Page Transitions with Modern Loading
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Page transitions initialized');
+    console.log('Modern page transitions initialized');
     
     const pageTransition = document.getElementById('pageTransition');
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a, .logo');
+    const percentageCounter = document.querySelector('.percentage-counter');
+    const progressBar = document.querySelector('.loading-progress-bar');
+    const loadingText = document.querySelector('.loading-text');
+    const particleContainer = document.getElementById('particleContainer');
     
     if (!pageTransition) {
         console.error('Page transition element not found!');
@@ -4452,6 +4729,82 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollProgress.className = 'scroll-progress';
         scrollProgress.id = 'scrollProgress';
         document.body.appendChild(scrollProgress);
+    }
+    
+    // Create particles
+    function createParticles() {
+        if (!particleContainer) return;
+        
+        particleContainer.innerHTML = '';
+        const particleCount = 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random position
+            const left = Math.random() * 100;
+            const delay = Math.random() * 2;
+            const duration = 2 + Math.random() * 2;
+            const tx = (Math.random() * 200 - 100) + 'px';
+            
+            particle.style.left = left + '%';
+            particle.style.animationDelay = delay + 's';
+            particle.style.animationDuration = duration + 's';
+            particle.style.setProperty('--tx', tx);
+            
+            // Random size
+            const size = 2 + Math.random() * 3;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            // Random opacity
+            particle.style.opacity = 0.3 + Math.random() * 0.7;
+            
+            particleContainer.appendChild(particle);
+        }
+    }
+    
+    // Animate percentage counter
+    function animatePercentage(duration = 1000) {
+        if (!percentageCounter || !progressBar) return;
+        
+        let startTime = null;
+        const startValue = 0;
+        const endValue = 100;
+        
+        function updateCounter(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            // Easing function
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(startValue + (endValue - startValue) * easeProgress);
+            
+            percentageCounter.textContent = currentValue + '%';
+            progressBar.style.width = currentValue + '%';
+            
+            // Animate loading text
+            if (loadingText) {
+                const text = 'LOADING';
+                loadingText.innerHTML = '';
+                for (let i = 0; i < text.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = text[i];
+                    loadingText.appendChild(span);
+                }
+            }
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                percentageCounter.textContent = '100%';
+                progressBar.style.width = '100%';
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
     }
     
     // Initialize Intersection Observer for section animations
@@ -4565,7 +4918,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to start page transition
     function startPageTransition(callback) {
+        // Reset dan setup
+        if (percentageCounter) {
+            percentageCounter.textContent = '0%';
+        }
+        if (progressBar) {
+            progressBar.style.width = '0%';
+        }
+        
+        // Create particles
+        createParticles();
+        
+        // Show page transition
         pageTransition.classList.add('active');
+        
+        // Start percentage animation
+        setTimeout(() => {
+            animatePercentage(800);
+        }, 300);
         
         // Wait for transition to show
         setTimeout(() => {
@@ -4577,7 +4947,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function endPageTransition() {
         setTimeout(() => {
             pageTransition.classList.remove('active');
-        }, 300);
+            // Reset counter
+            if (percentageCounter) {
+                percentageCounter.textContent = '0%';
+            }
+            if (progressBar) {
+                progressBar.style.width = '0%';
+            }
+        }, 500);
     }
     
     // Function to update active navigation
@@ -4663,6 +5040,9 @@ document.addEventListener('DOMContentLoaded', function() {
             isScrolling = true;
         }
     }
+    
+    // Initialize particles
+    createParticles();
     
     // Initialize
     highlightActiveSection();

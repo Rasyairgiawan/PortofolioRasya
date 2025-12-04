@@ -2,6 +2,33 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Portfolio enhanced features initialized');
     
+    // Check if loading is complete
+    if (document.body.classList.contains('loading')) {
+        // Wait for loading to complete
+        const checkLoading = setInterval(function() {
+            if (document.body.classList.contains('loaded')) {
+                clearInterval(checkLoading);
+                initAllFeatures();
+            }
+        }, 100);
+        
+        // Fallback timeout
+        setTimeout(function() {
+            clearInterval(checkLoading);
+            if (document.body.classList.contains('loading')) {
+                document.body.classList.remove('loading');
+                document.body.classList.add('loaded');
+                initAllFeatures();
+            }
+        }, 3000);
+    } else {
+        initAllFeatures();
+    }
+});
+
+function initAllFeatures() {
+    console.log('Initializing all enhanced features');
+    
     // Typing Animation
     initTypingAnimation();
     
@@ -11,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Navigation
     initEnhancedNavigation();
     
-    // Dark/Light Mode Toggle - FIXED FOR MOBILE
+    // Dark/Light Mode Toggle - FIXED
     initThemeToggle();
     
     // Back to Top Button
@@ -25,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Enhanced Modal Interactions
     initEnhancedModals();
-});
+    
+    console.log('All features initialized successfully');
+}
 
 // Typing Animation for Hero Section
 function initTypingAnimation() {
@@ -64,14 +93,16 @@ function initTypingAnimation() {
     }
     
     // Start typing animation after page load
-    setTimeout(type, 1000);
+    setTimeout(type, 500);
 }
 
-// Scroll Animations with Intersection Observer
+// Scroll Animations with Intersection Observer - UPDATED
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
         '.services-box, .project-box, .testimonial-item, .about-content, .about-img'
     );
+    
+    if (animatedElements.length === 0) return;
     
     const observerOptions = {
         threshold: 0.1,
@@ -92,10 +123,12 @@ function initScrollAnimations() {
     });
 }
 
-// Enhanced Navigation with Active State
+// Enhanced Navigation with Active State - FIXED
 function initEnhancedNavigation() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a');
+    
+    if (sections.length === 0 || navLinks.length === 0) return;
     
     function highlightNav() {
         let scrollY = window.pageYOffset;
@@ -142,34 +175,46 @@ function initEnhancedNavigation() {
     highlightNav();
 }
 
-// Dark/Light Mode Toggle - FIXED FOR MOBILE
+// Dark/Light Mode Toggle - FIXED VERSION
 function initThemeToggle() {
+    // Check if theme toggle already exists
+    const existingToggle = document.querySelector('.theme-toggle');
+    if (existingToggle) {
+        // If exists but in wrong place, fix it
+        if (!existingToggle.closest('.header-actions')) {
+            const headerActions = document.querySelector('.header-actions');
+            if (headerActions) {
+                headerActions.insertBefore(existingToggle, document.querySelector('#menu-icon'));
+            }
+        }
+        return;
+    }
+    
     // Create theme toggle button
     const themeToggle = document.createElement('button');
     themeToggle.innerHTML = '<i class="bx bx-moon"></i>';
     themeToggle.className = 'theme-toggle';
     themeToggle.setAttribute('aria-label', 'Toggle dark/light mode');
-    themeToggle.setAttribute('title', 'Toggle theme');
     
-    // Add to header actions for proper positioning
-    const header = document.querySelector('.header');
-    let headerActions = document.querySelector('.header-actions');
-    
-    if (!headerActions) {
-        headerActions = document.createElement('div');
-        headerActions.className = 'header-actions';
-        header.appendChild(headerActions);
-    }
-    
-    // Insert before menu icon for better mobile layout
-    const menuIcon = document.querySelector('#menu-icon');
-    if (menuIcon && menuIcon.parentElement === headerActions) {
-        headerActions.insertBefore(themeToggle, menuIcon);
+    // Add to header actions container (not navbar)
+    const headerActions = document.querySelector('.header-actions');
+    if (headerActions) {
+        // Insert before menu icon
+        const menuIcon = document.querySelector('#menu-icon');
+        if (menuIcon) {
+            headerActions.insertBefore(themeToggle, menuIcon);
+        } else {
+            headerActions.appendChild(themeToggle);
+        }
     } else {
-        headerActions.appendChild(themeToggle);
+        // Fallback: add to header
+        const header = document.querySelector('.header');
+        if (header) {
+            header.appendChild(themeToggle);
+        }
     }
     
-    // Check for saved theme preference
+    // Check for saved theme preference or default to dark
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
@@ -177,10 +222,8 @@ function initThemeToggle() {
     // Apply theme
     applyTheme(currentTheme);
     
-    // Theme toggle click event
     themeToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        
+        e.stopPropagation(); // Prevent event bubbling
         const currentTheme = document.body.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
@@ -188,37 +231,24 @@ function initThemeToggle() {
         localStorage.setItem('theme', newTheme);
     });
     
-    // Apply theme function
     function applyTheme(theme) {
         document.body.setAttribute('data-theme', theme);
         updateThemeIcon(theme);
-        
-        // Add transition class for smooth change
-        document.body.classList.add('theme-transition');
-        setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-        }, 300);
     }
     
-    // Update theme icon
     function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
         if (icon) {
             icon.className = theme === 'dark' ? 'bx bx-moon' : 'bx bx-sun';
         }
     }
-    
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (!localStorage.getItem('theme')) {
-            const newTheme = e.matches ? 'dark' : 'light';
-            applyTheme(newTheme);
-        }
-    });
 }
 
 // Back to Top Button
 function initBackToTop() {
+    // Check if button already exists
+    if (document.querySelector('.back-to-top')) return;
+    
     const backToTopBtn = document.createElement('button');
     backToTopBtn.innerHTML = '<i class="bx bx-chevron-up"></i>';
     backToTopBtn.className = 'back-to-top';
@@ -252,12 +282,12 @@ function initFormValidation() {
     inputs.forEach(input => {
         // Add focus effects
         input.addEventListener('focus', function() {
-            this.classList.add('focused');
+            this.parentElement.classList.add('focused');
         });
         
         input.addEventListener('blur', function() {
             if (!this.value) {
-                this.classList.remove('focused');
+                this.parentElement.classList.remove('focused');
             }
             validateField(this);
         });

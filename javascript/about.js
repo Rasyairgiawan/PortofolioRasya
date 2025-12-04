@@ -1,7 +1,15 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing about section...');
     
+    // Wait for loading to complete
+    if (document.body.classList.contains('loading')) {
+        setTimeout(initAboutSection, 500);
+    } else {
+        initAboutSection();
+    }
+});
+
+function initAboutSection() {
     // Toggle Read More functionality
     const readMoreBtn = document.getElementById('readMoreBtn');
     const enhancedFeatures = document.getElementById('enhancedFeatures');
@@ -62,7 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Skill bars animation on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
+    const skillBars = document.querySelectorAll('.skill-progress');
+    if (skillBars.length > 0) {
         const skillsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -79,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         skillBars.forEach(bar => {
             skillsObserver.observe(bar);
         });
+    }
 
     // Reset stats counter
     function resetStats() {
@@ -125,4 +135,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     console.log('About section initialized successfully!');
-});
+}

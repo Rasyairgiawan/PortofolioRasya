@@ -1,5 +1,14 @@
-// Enhanced Header & Mobile Navigation - FIXED
+// Enhanced Header & Mobile Navigation - FIXED SYMMETRY
 document.addEventListener('DOMContentLoaded', function() {
+    // Wait for loading to complete
+    if (document.body.classList.contains('loading')) {
+        setTimeout(initNavigation, 500);
+    } else {
+        initNavigation();
+    }
+});
+
+function initNavigation() {
     const header = document.querySelector('.header');
     const menuIcon = document.querySelector('#menu-icon');
     const navbar = document.querySelector('.navbar');
@@ -12,58 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Set initial display based on screen width
-    function setInitialMenuIconDisplay() {
-        if (window.innerWidth > 991) {
-            // Desktop: Sembunyikan menu icon
-            menuIcon.style.display = 'none';
-        } else {
-            // Mobile: Tampilkan menu icon
-            menuIcon.style.display = 'flex';
-        }
-    }
-
-    // Create header actions container for better mobile layout
+    // Create header actions container ONLY if it doesn't exist
     function createHeaderStructure() {
-        let headerActions = document.querySelector('.header-actions');
+        if (document.querySelector('.header-actions')) return;
         
-        if (!headerActions) {
-            headerActions = document.createElement('div');
-            headerActions.className = 'header-actions';
-            
-            // Move theme toggle ke header actions
-            const themeToggle = document.querySelector('.theme-toggle');
-            if (themeToggle) {
-                headerActions.appendChild(themeToggle);
-            }
-            
-            // Selalu tambah menu icon ke DOM, tapi kontrol display dengan CSS/JS
-            headerActions.appendChild(menuIcon);
-            
-            header.appendChild(headerActions);
-        }
+        const headerActions = document.createElement('div');
+        headerActions.className = 'header-actions';
+        
+        // Only add menu icon, NOT theme toggle (it will be added by enhanced.js)
+        headerActions.appendChild(menuIcon);
+        
+        header.appendChild(headerActions);
     }
 
     // Initialize header structure
     createHeaderStructure();
-    
-    // Set initial display
-    setInitialMenuIconDisplay();
-
-    // Update menu icon display saat resize
-    function updateMenuIconOnResize() {
-        if (window.innerWidth > 991) {
-            // Desktop: Sembunyikan menu icon dan tutup menu jika terbuka
-            menuIcon.style.display = 'none';
-            closeMenu();
-        } else {
-            // Mobile: Tampilkan menu icon
-            menuIcon.style.display = 'flex';
-        }
-    }
-
-    // Listen for window resize
-    window.addEventListener('resize', updateMenuIconOnResize);
 
     // Header scroll effect
     function handleScroll() {
@@ -74,34 +46,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Toggle mobile menu - HANYA DI MOBILE
+    // Toggle mobile menu
     function toggleMenu() {
-        // Hanya toggle jika di mobile
-        if (window.innerWidth <= 991) {
-            navbar.classList.toggle('active');
-            body.classList.toggle('menu-open');
-            
-            // Change icon with proper animation
-            if (navbar.classList.contains('active')) {
-                menuIcon.classList.remove('bx-menu');
-                menuIcon.classList.add('bx-x');
-            } else {
-                menuIcon.classList.remove('bx-x');
-                menuIcon.classList.add('bx-menu');
-            }
+        navbar.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        // Change icon with proper animation
+        if (navbar.classList.contains('active')) {
+            menuIcon.classList.remove('bx-menu');
+            menuIcon.classList.add('bx-x');
+        } else {
+            menuIcon.classList.remove('bx-x');
+            menuIcon.classList.add('bx-menu');
         }
     }
 
     // Close mobile menu
     function closeMenu() {
-        if (navbar.classList.contains('active')) {
-            navbar.classList.remove('active');
-            if (menuIcon) {
-                menuIcon.classList.remove('bx-x');
-                menuIcon.classList.add('bx-menu');
-            }
-            body.classList.remove('menu-open');
-        }
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+        menuIcon.classList.add('bx-menu');
+        body.classList.remove('menu-open');
     }
 
     // Smooth scroll to section
@@ -145,8 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
         highlightActiveSection();
     });
 
-    // Menu icon click - HANYA JIKA DI MOBILE
+    // Menu icon click
     menuIcon.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
         toggleMenu();
     });
@@ -159,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             
             // Close mobile menu if open
-            if (window.innerWidth <= 991) {
+            if (window.innerWidth <= 991 && navbar.classList.contains('active')) {
                 closeMenu();
             }
             
@@ -181,8 +147,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 991 && 
             navbar.classList.contains('active') &&
             !navbar.contains(e.target) && 
+            e.target !== menuIcon &&
             !menuIcon.contains(e.target) &&
-            e.target !== menuIcon) {
+            !e.target.closest('.theme-toggle')) { // Juga jangan tutup jika klik theme toggle
+            closeMenu();
+        }
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 991 && navbar.classList.contains('active')) {
             closeMenu();
         }
     });
@@ -194,19 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close menu when theme toggle is clicked on mobile
-    const themeToggle = document.querySelector('.theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 991 && navbar.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-    }
-
     // Initialize
     handleScroll();
     highlightActiveSection();
     
-    console.log('Navigation initialized successfully!');
-});
+    console.log('Mobile navigation initialized successfully!');
+}

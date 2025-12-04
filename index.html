@@ -7,7 +7,192 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
+    <!-- Loading Screen Styles -->
     <style>
+      /* Loading Screen Styles */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          #0a0e27 0%,
+          #1a1f3a 50%,
+          #0d1b2a 100%
+        );
+        overflow: hidden;
+        z-index: 9999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      .loading-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loading-screen::before {
+        content: "";
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader-container {
+        position: relative;
+        z-index: 10;
+      }
+
+      .infinity {
+        width: 120px;
+        height: 60px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .infinity svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.8))
+          drop-shadow(0 0 40px rgba(59, 130, 246, 0.6))
+          drop-shadow(0 0 60px rgba(37, 99, 235, 0.4));
+      }
+
+      .infinity-path {
+        stroke: #60a5fa;
+        stroke-width: 3;
+        fill: none;
+        stroke-linecap: round;
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        animation: drawInfinity 2s ease-in-out infinite;
+      }
+
+      @keyframes drawInfinity {
+        0%,
+        100% {
+          stroke-dashoffset: 300;
+          opacity: 0.3;
+        }
+        50% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+      }
+
+      .glow-circle {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+          0 0 40px rgba(96, 165, 250, 0.6), 0 0 60px rgba(59, 130, 246, 0.4);
+        animation: moveAlongPath 2s ease-in-out infinite;
+      }
+
+      @keyframes moveAlongPath {
+        0% {
+          offset-distance: 0%;
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          offset-distance: 100%;
+          opacity: 1;
+        }
+      }
+
+      .loading-text {
+        margin-top: 30px;
+        color: #60a5fa;
+        font-family: "Arial", sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(96, 165, 250, 0.3);
+        border-radius: 50%;
+        animation: float linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) scale(1);
+          opacity: 0;
+        }
+      }
+
+      /* Sembunyikan konten utama saat loading */
+      body.loading .main-content {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      body.loaded .main-content {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
       /* Temporary fix for logo alignment */
       .header {
         display: flex !important;
@@ -28,730 +213,763 @@
           text-align: left;
         }
       }
+
+      /* Ensure proper stacking */
+      body {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .loading-screen {
+        position: fixed;
+      }
+
+      .loading-screen.hidden {
+        pointer-events: none;
+      }
+
+      .loading-screen:not(.hidden) {
+        pointer-events: all;
+      }
     </style>
+
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/enhanced.css" />
 
     <title>Rasya Irgiawan - Full Stack Developer Portfolio</title>
   </head>
 
-  <body>
-    <!-- Page Transition Overlay dengan Loading Modern -->
-    <div class="page-transition" id="pageTransition">
-      <div class="loading-container">
-        <div class="loading-logo">RASYA JR</div>
-        <div class="loading-text">LOADING</div>
-        
-        <div class="modern-spinner">
-          <div class="spinner-ring"></div>
-          <div class="spinner-ring"></div>
-          <div class="spinner-ring"></div>
+  <body class="loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="particles" id="particles"></div>
+
+      <div class="loader-container">
+        <div class="infinity">
+          <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+            <path
+              class="infinity-path"
+              d="M 20,30 C 20,15 30,10 40,10 C 50,10 55,20 60,30 C 65,40 70,50 80,50 C 90,50 100,45 100,30 C 100,15 90,10 80,10 C 70,10 65,20 60,30 C 55,40 50,50 40,50 C 30,50 20,45 20,30 Z"
+              id="infinityPath"
+            />
+          </svg>
+          <div
+            class="glow-circle"
+            style="
+              offset-path: path(
+                'M 20,30 C 20,15 30,10 40,10 C 50,10 55,20 60,30 C 65,40 70,50 80,50 C 90,50 100,45 100,30 C 100,15 90,10 80,10 C 70,10 65,20 60,30 C 55,40 50,50 40,50 C 30,50 20,45 20,30 Z'
+              );
+            "
+          ></div>
         </div>
-        
-        <div class="loading-progress">
-          <div class="loading-progress-bar"></div>
-        </div>
-        
-        <div class="loading-dots">
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
-        </div>
-        
-        <div class="percentage-counter">0%</div>
+        <div class="loading-text">Loading...</div>
       </div>
-      
-      <div class="holographic-effect"></div>
-      <div class="particle-container" id="particleContainer"></div>
     </div>
-    
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- header section code -->
-    <header class="header">
-      <a href="#home" class="logo">MOCH. RASYA IRGIAWAN</a>
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- header section code -->
+      <header class="header">
+        <a href="#home" class="logo"> RASYA </a>
 
-      <i class="bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-menu" id="menu-icon"></i>
 
-      <nav class="navbar">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#testimonial" class="nav-link">Testimoni</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-    </header>
+        <nav class="navbar">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#testimonial" class="nav-link">Testimoni</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+      </header>
+      <!-- Home Section Code -->
 
-    <!-- Home Section Code -->
-    <section class="home section-transition" id="home">
-      <div class="home-img">
-        <img src="assets/3.jpg" alt="Profile Image" />
+      <section class="home" id="home">
+        <div class="home-img">
+          <img src="assets/3.jpg" alt="Profile Image" />
+        </div>
+
+        <div class="home-content">
+          <h3>Hello, MySelf</h3>
+          <h1>Moch. Rasya Irgiawan</h1>
+          <h3>
+            And I'm <span class="multiple-text">Full-Stack Developer</span>
+          </h3>
+          <p>
+            Saya memiliki pengalaman dalam membangun website responsif
+            menggunakan HTML, CSS, dan JavaScript, serta bekerja dengan
+            framework modern seperti Laravel dan React, Saya juga memiliki
+            pengalaman menggunakan Java dan Flutter dalam membuat aplikasi
+            mobile
+          </p>
+
+          <div class="social-media">
+            <a
+              href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              ><i class="bx bxl-linkedin"></i
+            ></a>
+            <a href="https://github.com/Rasyairgiawan"
+              ><i class="bx bxl-github"></i
+            ></a>
+            <a href="https://www.facebook.com/rasya.691143"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com/rasyairgiawan/"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+          </div>
+          <a href="#" class="btn">Download CV</a>
+        </div>
+      </section>
+
+      <!-- about section code  -->
+
+      <section class="about" id="about">
+        <div class="about-main">
+          <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>I'm <span>Full Stack Developer</span></h3>
+            <p>
+              Halo! Saya adalah seorang Full-Stack Developer yang bersemangat
+              menciptakan tampilan antarmuka yang menarik dan responsif. Dengan
+              pengalaman dalam HTML, CSS, dan JavaScript, saya fokus pada detail
+              dan pengalaman pengguna untuk menghasilkan aplikasi, web, game
+              yang memukau.
+            </p>
+            <p>
+              Saya selalu belajar dan mengikuti perkembangan teknologi terbaru
+              untuk memastikan hasil kerja yang terbaik. Jika Anda mencari
+              seseorang yang dapat membantu mewujudkan ide-ide kreatif Anda ke
+              dalam bentuk digital, mari kita bekerja sama!
+            </p>
+            <a href="#" class="btn" id="readMoreBtn">Read More</a>
+          </div>
+          <div class="about-img">
+            <img src="assets/rasya formal.jpg" alt="Profile Image" />
+          </div>
+        </div>
+
+        <!-- Enhanced Features - NOW PROPERLY POSITIONED -->
+        <div class="enhanced-features" id="enhancedFeatures">
+          <div class="stats-container">
+            <div class="stat-item">
+              <span class="stat-number" data-target="50">0</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="3">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="25">0</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="100">0</span>
+              <span class="stat-label">Success Rate</span>
+            </div>
+          </div>
+
+          <div class="info-tabs">
+            <div class="tab-buttons">
+              <button class="tab-button active" data-tab="skills">
+                Skills
+              </button>
+              <button class="tab-button" data-tab="experience">
+                Experience
+              </button>
+              <button class="tab-button" data-tab="facts">Fun Facts</button>
+            </div>
+
+            <div class="tab-content active" id="skills">
+              <h3 class="skills-title">Technical Skills</h3>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>HTML/CSS</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>JavaScript</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Java</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Flutter</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-content" id="experience">
+              <h3 class="timeline-title">My Journey</h3>
+              <div class="timeline-container">
+                <div class="timeline-item">
+                  <div class="timeline-date">2023 - Present</div>
+                  <div class="timeline-content">
+                    Full-Stack Developer - Freelance
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2023 - 2023</div>
+                  <div class="timeline-content">
+                    Internship - PT BIG DATA (UBIG)
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2021 - 2022</div>
+                  <div class="timeline-content">Learning Web Development</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2020 - 2021</div>
+                  <div class="timeline-content">
+                    Computer Networking Studies
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-content" id="facts">
+              <h3 class="skills-title">Fun Facts About Me</h3>
+              <div class="fact-item">
+                <i class="bx bx-coffee fact-icon"></i>
+                <span>I drink 5+ cups of coffee daily while coding</span>
+              </div>
+              <div class="fact-item">
+                <i class="bx bx-code-alt fact-icon"></i>
+                <span>I've written over 100,000 lines of code</span>
+              </div>
+              <div class="fact-item">
+                <i class="bx bx-moon fact-icon"></i>
+                <span>I'm most productive during late night hours</span>
+              </div>
+              <div class="fact-item">
+                <i class="bx bx-game fact-icon"></i>
+                <span>I love playing games in my free time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- servise section code -->
+
+      <section class="services" id="services">
+        <h2 class="heading">My <span>Services</span></h2>
+
+        <div class="services-container">
+          <div class="services-box">
+            <i class="bx bx-code"></i>
+            <h3>Web Development</h3>
+            <p>
+              Membangun situs web modern dan responsif dengan teknologi terkini
+              untuk membantu bisnis Anda tampil profesional dan menarik di dunia
+              digital.
+            </p>
+            <a href="#services" class="btn" onclick="openModal('webdev')"
+              >Read More</a
+            >
+          </div>
+
+          <div class="services-box">
+            <i class="bx bx-palette"></i>
+            <h3>UI / UX Design</h3>
+            <p>
+              Mendesain antarmuka pengguna yang intuitif dan pengalaman pengguna
+              yang memikat, menciptakan produk digital yang mudah digunakan dan
+              estetis.
+            </p>
+            <a href="#services" class="btn" onclick="openModal('uiux')"
+              >Read More</a
+            >
+          </div>
+
+          <div class="services-box">
+            <i class="bx bxl-android"></i>
+            <h3>App Development</h3>
+            <p>
+              Mengembangkan aplikasi mobile yang inovatif, berperforma tinggi,
+              dan sesuai dengan kebutuhan bisnis Anda untuk platform Android dan
+              iOS.
+            </p>
+            <a href="#services" class="btn" onclick="openModal('appdev')"
+              >Read More</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal for Web Development -->
+      <div id="webdev-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <i class="bx bx-code"></i>
+              <span>Web Development</span>
+            </div>
+            <span class="close" onclick="closeModal('webdev')">&times;</span>
+          </div>
+          <div class="modal-body">
+            <p>
+              Saya menyediakan layanan pengembangan web yang lengkap dan
+              profesional untuk membantu bisnis Anda berkembang di era digital.
+              Dengan pengalaman lebih dari 3 tahun, saya siap membantu
+              mewujudkan visi digital Anda.
+            </p>
+
+            <h4>Layanan yang Saya Tawarkan:</h4>
+            <ul>
+              <li>Pembuatan website responsif dan modern</li>
+              <li>Pengembangan aplikasi web interaktif</li>
+              <li>Optimasi SEO dan performa website</li>
+              <li>Integrasi API dan sistem pembayaran</li>
+              <li>Maintenance dan update berkelanjutan</li>
+              <li>Konsultasi strategi digital</li>
+            </ul>
+
+            <h4>Teknologi yang Saya Gunakan:</h4>
+            <div class="tech-stack">
+              <span class="tech-item">HTML</span>
+              <span class="tech-item">CSS</span>
+              <span class="tech-item">JavaScript</span>
+              <span class="tech-item">PHP</span>
+              <span class="tech-item">Laravel</span>
+              <span class="tech-item">React</span>
+              <span class="tech-item">Node.js</span>
+              <span class="tech-item">Express.js</span>
+              <span class="tech-item">MongoDB</span>
+              <span class="tech-item">MySQL</span>
+            </div>
+
+            <div class="price-section">
+              <h4>Paket Harga Web Development</h4>
+              <div class="price-list">
+                <div class="price-item">
+                  <h5>Basic Package</h5>
+                  <div class="price">Rp 2.500.000</div>
+                  <p>Landing page responsif</p>
+                </div>
+                <div class="price-item">
+                  <h5>Standard Package</h5>
+                  <div class="price">Rp 5.000.000</div>
+                  <p>Website company profile</p>
+                </div>
+                <div class="price-item">
+                  <h5>Premium Package</h5>
+                  <div class="price">Rp 10.000.000</div>
+                  <p>Web application kompleks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="home-content">
-        <h3>Hello, MySelf</h3>
-        <h1>Rasya Irgiawan</h1>
-        <h3>And I'm <span class="multiple-text">Full-Stack Developer</span></h3>
-        <p>
-          Saya memiliki pengalaman dalam membangun website responsif menggunakan
-          HTML, CSS, dan JavaScript, serta bekerja dengan framework modern
-          seperti Laravel dan React, Saya juga memiliki pengalaman menggunakan
-          Java dan Flutter dalam membuat aplikasi mobile
-        </p>
+      <!-- Modal for UI/UX Design -->
+      <div id="uiux-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <i class="bx bx-palette"></i>
+              <span>UI / UX Design</span>
+            </div>
+            <span class="close" onclick="closeModal('uiux')">&times;</span>
+          </div>
+          <div class="modal-body">
+            <p>
+              Menciptakan pengalaman pengguna yang luar biasa melalui desain
+              yang intuitif dan estetis. Saya fokus pada user-centered design
+              untuk memastikan setiap interaksi memberikan kepuasan maksimal
+              bagi pengguna.
+            </p>
 
-        <div class="social-media">
+            <h4>Layanan Design yang Saya Tawarkan:</h4>
+            <ul>
+              <li>User Research dan Analysis</li>
+              <li>Wireframing dan Prototyping</li>
+              <li>UI Design untuk web dan mobile</li>
+              <li>UX Audit dan Optimization</li>
+              <li>Design System Development</li>
+              <li>Usability Testing</li>
+            </ul>
+
+            <h4>Tools yang Saya Gunakan:</h4>
+            <div class="tech-stack">
+              <span class="tech-item">Figma</span>
+              <span class="tech-item">Adobe XD</span>
+              <span class="tech-item">Sketch</span>
+              <span class="tech-item">Photoshop</span>
+              <span class="tech-item">Illustrator</span>
+              <span class="tech-item">InVision</span>
+              <span class="tech-item">Principle</span>
+            </div>
+
+            <div class="price-section">
+              <h4>Paket Harga UI/UX Design</h4>
+              <div class="price-list">
+                <div class="price-item">
+                  <h5>Basic Design</h5>
+                  <div class="price">Rp 1.500.000</div>
+                  <p>UI design 5 halaman</p>
+                </div>
+                <div class="price-item">
+                  <h5>Standard Design</h5>
+                  <div class="price">Rp 3.000.000</div>
+                  <p>UI/UX design lengkap</p>
+                </div>
+                <div class="price-item">
+                  <h5>Premium Design</h5>
+                  <div class="price">Rp 6.000.000</div>
+                  <p>Design system + prototype</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for App Development -->
+      <div id="appdev-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <i class="bx bxl-android"></i>
+              <span>App Development</span>
+            </div>
+            <span class="close" onclick="closeModal('appdev')">&times;</span>
+          </div>
+          <div class="modal-body">
+            <p>
+              Mengembangkan aplikasi mobile yang inovatif dan berkualitas tinggi
+              untuk platform Android dan iOS. Saya berfokus pada performance,
+              user experience, dan scalability untuk memastikan aplikasi Anda
+              sukses di market.
+            </p>
+
+            <h4>Layanan App Development:</h4>
+            <ul>
+              <li>Native Android Development</li>
+              <li>Cross-platform Development</li>
+              <li>App Store Optimization</li>
+              <li>API Integration</li>
+              <li>Push Notification System</li>
+              <li>App Maintenance & Updates</li>
+            </ul>
+
+            <h4>Teknologi Mobile yang Saya Gunakan:</h4>
+            <div class="tech-stack">
+              <span class="tech-item">Flutter</span>
+              <span class="tech-item">Java</span>
+              <span class="tech-item">Kotlin</span>
+              <span class="tech-item">React Native</span>
+              <span class="tech-item">Firebase</span>
+              <span class="tech-item">SQLite</span>
+              <span class="tech-item">REST API</span>
+            </div>
+
+            <div class="price-section">
+              <h4>Paket Harga App Development</h4>
+              <div class="price-list">
+                <div class="price-item">
+                  <h5>Basic App</h5>
+                  <div class="price">Rp 8.000.000</div>
+                  <p>Simple mobile app</p>
+                </div>
+                <div class="price-item">
+                  <h5>Standard App</h5>
+                  <div class="price">Rp 15.000.000</div>
+                  <p>Business mobile app</p>
+                </div>
+                <div class="price-item">
+                  <h5>Premium App</h5>
+                  <div class="price">Rp 25.000.000</div>
+                  <p>Complex app with backend</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Section -->
+      <section class="projects section-transition" id="projects">
+        <h2 class="heading">My <span>Projects</span></h2>
+        <div class="projects-container">
+          <div class="project-box">
+            <img src="assets/TaskManagerApp.png" alt="Task Manager App" />
+            <div class="project-layer">
+              <h4>Task Manager App</h4>
+              <p>
+                Website Task Manager dengan fitur CRUD, autentikasi, dan
+                notifikasi
+              </p>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Firebase</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://task-manager-app-bice-nine.vercel.app"
+                  target="_blank"
+                >
+                  <i class="bx bx-link-external"></i>
+                </a>
+                <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <img src="assets/HajiRasya.png" alt="Mobile Banking App" />
+            <div class="project-layer">
+              <h4>Cek Khodam</h4>
+              <p>
+                website cek khodam dengan fitur prediksi dan konsultasi online
+              </p>
+              <div class="project-tech">
+                <span>Flutter</span>
+                <span>Firebase</span>
+                <span>REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="#"><i class="bx bx-link-external"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Company Profile Website"
+            />
+            <div class="project-layer">
+              <h4>Company Profile Website</h4>
+              <p>
+                Website company profile modern dengan CMS custom dan responsive
+                design
+              </p>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="#"><i class="bx bx-link-external"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Task Management App"
+            />
+            <div class="project-layer">
+              <h4>Task Management App</h4>
+              <p>
+                Aplikasi manajemen tugas dengan real-time collaboration dan
+                notifications
+              </p>
+              <div class="project-tech">
+                <span>Vue.js</span>
+                <span>Express.js</span>
+                <span>Socket.io</span>
+              </div>
+              <div class="project-links">
+                <a href="#"><i class="bx bx-link-external"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <img
+              src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16381272-0eb9-403c-8462-03b04dc44a6e_brand-image_1762709942036.jpg"
+              alt="Food Delivery App"
+            />
+            <div class="project-layer">
+              <h4>Food Delivery App</h4>
+              <p>
+                Aplikasi pesan makanan online dengan tracking order dan payment
+                gateway
+              </p>
+              <div class="project-tech">
+                <span>React Native</span>
+                <span>Laravel</span>
+                <span>Midtrans</span>
+              </div>
+              <div class="project-links">
+                <a href="#"><i class="bx bx-link-external"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <img
+              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Portfolio Website"
+            />
+            <div class="project-layer">
+              <h4>Portfolio Website</h4>
+              <p>
+                Website portfolio interaktif dengan animasi dan dark mode toggle
+              </p>
+              <div class="project-tech">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>GSAP</span>
+              </div>
+              <div class="project-links">
+                <a href="#"><i class="bx bx-link-external"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonial Section -->
+
+      <section class="testimonial" id="testimonial">
+        <div class="testimonial-box">
+          <h2 class="heading">Testimonials</h2>
+
+          <div class="wrapper">
+            <div class="testimonial-item">
+              <img src="assets/ngab owi.jpg" alt />
+
+              <h2>Jokowi</h2>
+              <div class="rating">
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+              </div>
+              <p>
+                "Rasya benar-benar memberikan hasil kerja yang luar biasa.
+                Sangat profesional dan mudah diajak bekerja sama. Website saya
+                kini terlihat modern dan responsif!"
+              </p>
+            </div>
+
+            <div class="testimonial-item">
+              <img src="assets/sungeng.jpg" alt />
+
+              <h2>Sugeng</h2>
+              <div class="rating">
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+              </div>
+              <p>
+                "Pengalaman bekerja dengan Rasya sangat menyenangkan. Desain
+                yang dibuat sangat sesuai dengan visi saya, dan detailnya sangat
+                diperhatikan."
+              </p>
+            </div>
+
+            <div class="testimonial-item">
+              <img src="assets/jepri.jpg" alt />
+
+              <h2>Jefri Nichol</h2>
+              <div class="rating">
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+                <i class="bx bxs-star" id="star"></i>
+              </div>
+              <p>
+                "Layanan yang diberikan sangat memuaskan. Rasya selalu cepat
+                merespons dan memberikan solusi yang kreatif. Hasil akhirnya
+                sangat memuaskan!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+
+      <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+
+        <form action="#">
+          <div class="input-box">
+            <input type="text" placeholder="Full Name" />
+            <input type="number" placeholder="Phone Number" />
+          </div>
+          <div class="input-box">
+            <input type="email" name="Email" placeholder="Email Address" />
+            <input type="text" placeholder="Email Subject" />
+          </div>
+          <textarea
+            name="message"
+            id
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+          ></textarea>
+          <input type="submit" value="Send Message" class="btn" />
+        </form>
+      </section>
+
+      <!-- Footer Section Code -->
+
+      <footer class="footer">
+        <div class="social">
           <a
             href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
             ><i class="bx bxl-linkedin"></i
           ></a>
-          <a href="https://github.com/Rasyairgiawan" target="_blank"
+          <a href="https://github.com/Rasyairgiawan"
             ><i class="bx bxl-github"></i
           ></a>
-          <a href="https://www.facebook.com/rasya.691143" target="_blank"
+          <a href="https://www.facebook.com/rasya.691143"
             ><i class="bx bxl-facebook"></i
           ></a>
-          <a href="https://www.instagram.com/rasyairgiawan/" target="_blank"
+          <a href="https://www.instagram.com/rasyairgiawan/"
             ><i class="bx bxl-instagram"></i
           ></a>
         </div>
-        <a href="#" class="btn">Download CV</a>
-      </div>
-    </section>
-
-    <!-- about section code -->
-    <section class="about section-transition" id="about">
-      <div class="about-main">
-        <div class="about-content">
-          <h2 class="heading">About <span>Me</span></h2>
-          <h3>I'm <span>Full Stack Developer</span></h3>
-          <p>
-            Halo! Saya adalah seorang Full-Stack Developer yang bersemangat
-            menciptakan tampilan antarmuka yang menarik dan responsif. Dengan
-            pengalaman dalam HTML, CSS, dan JavaScript, saya fokus pada detail
-            dan pengalaman pengguna untuk menghasilkan aplikasi, web, game yang
-            memukau.
-          </p>
-          <p>
-            Saya selalu belajar dan mengikuti perkembangan teknologi terbaru
-            untuk memastikan hasil kerja yang terbaik. Jika Anda mencari
-            seseorang yang dapat membantu mewujudkan ide-ide kreatif Anda ke
-            dalam bentuk digital, mari kita bekerja sama!
-          </p>
-          <a href="#" class="btn" id="readMoreBtn">Read More</a>
-        </div>
-        <div class="about-img">
-          <img src="assets/rasya formal.jpg" alt="Profile Image" />
-        </div>
-      </div>
-
-      <!-- Enhanced Features -->
-      <div class="enhanced-features" id="enhancedFeatures">
-        <div class="stats-container">
-          <div class="stat-item">
-            <span class="stat-number" data-target="50">0</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="3">0</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="25">0</span>
-            <span class="stat-label">Happy Clients</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-target="100">0</span>
-            <span class="stat-label">Success Rate</span>
-          </div>
-        </div>
-
-        <div class="info-tabs">
-          <div class="tab-buttons">
-            <button class="tab-button active" data-tab="skills">Skills</button>
-            <button class="tab-button" data-tab="experience">Experience</button>
-            <button class="tab-button" data-tab="facts">Fun Facts</button>
-          </div>
-
-          <div class="tab-content active" id="skills">
-            <h3 class="skills-title">Technical Skills</h3>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>HTML/CSS</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>JavaScript</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Java</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Flutter</span>
-                <span>75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="experience">
-            <h3 class="timeline-title">My Journey</h3>
-            <div class="timeline-container">
-              <div class="timeline-item">
-                <div class="timeline-date">2023 - Present</div>
-                <div class="timeline-content">
-                  Full-Stack Developer - Freelance
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2023 - 2023</div>
-                <div class="timeline-content">
-                  Internship - PT BIG DATA (UBIG)
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2021 - 2022</div>
-                <div class="timeline-content">Learning Web Development</div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2020 - 2021</div>
-                <div class="timeline-content">Computer Networking Studies</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="facts">
-            <h3 class="skills-title">Fun Facts About Me</h3>
-            <div class="fact-item">
-              <i class="bx bx-coffee fact-icon"></i>
-              <span>I drink 5+ cups of coffee daily while coding</span>
-            </div>
-            <div class="fact-item">
-              <i class="bx bx-code-alt fact-icon"></i>
-              <span>I've written over 100,000 lines of code</span>
-            </div>
-            <div class="fact-item">
-              <i class="bx bx-moon fact-icon"></i>
-              <span>I'm most productive during late night hours</span>
-            </div>
-            <div class="fact-item">
-              <i class="bx bx-game fact-icon"></i>
-              <span>I love playing games in my free time</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- service section code -->
-    <section class="services section-transition" id="services">
-      <h2 class="heading">My <span>Services</span></h2>
-
-      <div class="services-container">
-        <div class="services-box">
-          <i class="bx bx-code"></i>
-          <h3>Web Development</h3>
-          <p>
-            Membangun situs web modern dan responsif dengan teknologi terkini
-            untuk membantu bisnis Anda tampil profesional dan menarik di dunia
-            digital.
-          </p>
-          <a href="#services" class="btn" onclick="openModal('webdev')"
-            >Read More</a
-          >
-        </div>
-
-        <div class="services-box">
-          <i class="bx bx-palette"></i>
-          <h3>UI / UX Design</h3>
-          <p>
-            Mendesain antarmuka pengguna yang intuitif dan pengalaman pengguna
-            yang memikat, menciptakan produk digital yang mudah digunakan dan
-            estetis.
-          </p>
-          <a href="#services" class="btn" onclick="openModal('uiux')"
-            >Read More</a
-          >
-        </div>
-
-        <div class="services-box">
-          <i class="bx bxl-android"></i>
-          <h3>App Development</h3>
-          <p>
-            Mengembangkan aplikasi mobile yang inovatif, berperforma tinggi, dan
-            sesuai dengan kebutuhan bisnis Anda untuk platform Android dan iOS.
-          </p>
-          <a href="#services" class="btn" onclick="openModal('appdev')"
-            >Read More</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- Modal for Web Development -->
-    <div id="webdev-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-title">
-            <i class="bx bx-code"></i>
-            <span>Web Development</span>
-          </div>
-          <span class="close" onclick="closeModal('webdev')">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p>
-            Saya menyediakan layanan pengembangan web yang lengkap dan
-            profesional untuk membantu bisnis Anda berkembang di era digital.
-            Dengan pengalaman lebih dari 3 tahun, saya siap membantu mewujudkan
-            visi digital Anda.
-          </p>
-
-          <h4>Layanan yang Saya Tawarkan:</h4>
-          <ul>
-            <li>Pembuatan website responsif dan modern</li>
-            <li>Pengembangan aplikasi web interaktif</li>
-            <li>Optimasi SEO dan performa website</li>
-            <li>Integrasi API dan sistem pembayaran</li>
-            <li>Maintenance dan update berkelanjutan</li>
-            <li>Konsultasi strategi digital</li>
-          </ul>
-
-          <h4>Teknologi yang Saya Gunakan:</h4>
-          <div class="tech-stack">
-            <span class="tech-item">HTML</span>
-            <span class="tech-item">CSS</span>
-            <span class="tech-item">JavaScript</span>
-            <span class="tech-item">PHP</span>
-            <span class="tech-item">Laravel</span>
-            <span class="tech-item">React</span>
-            <span class="tech-item">Node.js</span>
-            <span class="tech-item">Express.js</span>
-            <span class="tech-item">MongoDB</span>
-            <span class="tech-item">MySQL</span>
-          </div>
-
-          <div class="price-section">
-            <h4>Paket Harga Web Development</h4>
-            <div class="price-list">
-              <div class="price-item">
-                <h5>Basic Package</h5>
-                <div class="price">Rp 2.500.000</div>
-                <p>Landing page responsif</p>
-              </div>
-              <div class="price-item">
-                <h5>Standard Package</h5>
-                <div class="price">Rp 5.000.000</div>
-                <p>Website company profile</p>
-              </div>
-              <div class="price-item">
-                <h5>Premium Package</h5>
-                <div class="price">Rp 10.000.000</div>
-                <p>Web application kompleks</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <p class="copyright">
+          &copy; 2025 Rasya irgiawan - All Rights Reserved
+        </p>
+      </footer>
     </div>
 
-    <!-- Modal for UI/UX Design -->
-    <div id="uiux-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-title">
-            <i class="bx bx-palette"></i>
-            <span>UI / UX Design</span>
-          </div>
-          <span class="close" onclick="closeModal('uiux')">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p>
-            Menciptakan pengalaman pengguna yang luar biasa melalui desain yang
-            intuitif dan estetis. Saya fokus pada user-centered design untuk
-            memastikan setiap interaksi memberikan kepuasan maksimal bagi
-            pengguna.
-          </p>
-
-          <h4>Layanan Design yang Saya Tawarkan:</h4>
-          <ul>
-            <li>User Research dan Analysis</li>
-            <li>Wireframing dan Prototyping</li>
-            <li>UI Design untuk web dan mobile</li>
-            <li>UX Audit dan Optimization</li>
-            <li>Design System Development</li>
-            <li>Usability Testing</li>
-          </ul>
-
-          <h4>Tools yang Saya Gunakan:</h4>
-          <div class="tech-stack">
-            <span class="tech-item">Figma</span>
-            <span class="tech-item">Adobe XD</span>
-            <span class="tech-item">Sketch</span>
-            <span class="tech-item">Photoshop</span>
-            <span class="tech-item">Illustrator</span>
-            <span class="tech-item">InVision</span>
-            <span class="tech-item">Principle</span>
-          </div>
-
-          <div class="price-section">
-            <h4>Paket Harga UI/UX Design</h4>
-            <div class="price-list">
-              <div class="price-item">
-                <h5>Basic Design</h5>
-                <div class="price">Rp 1.500.000</div>
-                <p>UI design 5 halaman</p>
-              </div>
-              <div class="price-item">
-                <h5>Standard Design</h5>
-                <div class="price">Rp 3.000.000</div>
-                <p>UI/UX design lengkap</p>
-              </div>
-              <div class="price-item">
-                <h5>Premium Design</h5>
-                <div class="price">Rp 6.000.000</div>
-                <p>Design system + prototype</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for App Development -->
-    <div id="appdev-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-title">
-            <i class="bx bxl-android"></i>
-            <span>App Development</span>
-          </div>
-          <span class="close" onclick="closeModal('appdev')">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p>
-            Mengembangkan aplikasi mobile yang inovatif dan berkualitas tinggi
-            untuk platform Android dan iOS. Saya berfokus pada performance, user
-            experience, dan scalability untuk memastikan aplikasi Anda sukses di
-            market.
-          </p>
-
-          <h4>Layanan App Development:</h4>
-          <ul>
-            <li>Native Android Development</li>
-            <li>Cross-platform Development</li>
-            <li>App Store Optimization</li>
-            <li>API Integration</li>
-            <li>Push Notification System</li>
-            <li>App Maintenance & Updates</li>
-          </ul>
-
-          <h4>Teknologi Mobile yang Saya Gunakan:</h4>
-          <div class="tech-stack">
-            <span class="tech-item">Flutter</span>
-            <span class="tech-item">Java</span>
-            <span class="tech-item">Kotlin</span>
-            <span class="tech-item">React Native</span>
-            <span class="tech-item">Firebase</span>
-            <span class="tech-item">SQLite</span>
-            <span class="tech-item">REST API</span>
-          </div>
-
-          <div class="price-section">
-            <h4>Paket Harga App Development</h4>
-            <div class="price-list">
-              <div class="price-item">
-                <h5>Basic App</h5>
-                <div class="price">Rp 8.000.000</div>
-                <p>Simple mobile app</p>
-              </div>
-              <div class="price-item">
-                <h5>Standard App</h5>
-                <div class="price">Rp 15.000.000</div>
-                <p>Business mobile app</p>
-              </div>
-              <div class="price-item">
-                <h5>Premium App</h5>
-                <div class="price">Rp 25.000.000</div>
-                <p>Complex app with backend</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects Section -->
-    <section class="projects section-transition" id="projects">
-      <h2 class="heading">My <span>Projects</span></h2>
-      <div class="projects-container">
-        <div class="project-box">
-          <img src="assets/TaskManagerApp.png" alt="Task Manager App" />
-          <div class="project-layer">
-            <h4>Task Manager App</h4>
-            <p>
-              Website Task Manager dengan fitur CRUD, autentikasi, dan
-              notifikasi
-            </p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Firebase</span>
-              <span>JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://task-manager-app-bice-nine.vercel.app"
-                target="_blank"
-              >
-                <i class="bx bx-link-external"></i>
-              </a>
-              <a href="#"><i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-box">
-          <img src="assets/HajiRasya.png" alt="Mobile Banking App" />
-          <div class="project-layer">
-            <h4>Cek Khodam</h4>
-            <p>
-              website cek khodam dengan fitur prediksi dan konsultasi online
-            </p>
-            <div class="project-tech">
-              <span>Flutter</span>
-              <span>Firebase</span>
-              <span>REST API</span>
-            </div>
-            <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i></a>
-              <a href="#"><i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-box">
-          <img
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Company Profile Website"
-          />
-          <div class="project-layer">
-            <h4>Company Profile Website</h4>
-            <p>
-              Website company profile modern dengan CMS custom dan responsive
-              design
-            </p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-            </div>
-            <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i></a>
-              <a href="#"><i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-box">
-          <img
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Task Management App"
-          />
-          <div class="project-layer">
-            <h4>Task Management App</h4>
-            <p>
-              Aplikasi manajemen tugas dengan real-time collaboration dan
-              notifications
-            </p>
-            <div class="project-tech">
-              <span>Vue.js</span>
-              <span>Express.js</span>
-              <span>Socket.io</span>
-            </div>
-            <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i></a>
-              <a href="#"><i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-box">
-          <img
-            src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/16381272-0eb9-403c-8462-03b04dc44a6e_brand-image_1762709942036.jpg"
-            alt="Food Delivery App"
-          />
-          <div class="project-layer">
-            <h4>Food Delivery App</h4>
-            <p>
-              Aplikasi pesan makanan online dengan tracking order dan payment
-              gateway
-            </p>
-            <div class="project-tech">
-              <span>React Native</span>
-              <span>Laravel</span>
-              <span>Midtrans</span>
-            </div>
-            <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i></a>
-              <a href="#"><i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-box">
-          <img
-            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Portfolio Website"
-          />
-          <div class="project-layer">
-            <h4>Portfolio Website</h4>
-            <p>
-              Website portfolio interaktif dengan animasi dan dark mode toggle
-            </p>
-            <div class="project-tech">
-              <span>HTML/CSS</span>
-              <span>JavaScript</span>
-              <span>GSAP</span>
-            </div>
-            <div class="project-links">
-              <a href="#"><i class="bx bx-link-external"></i></a>
-              <a href="#"><i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section class="testimonial section-transition" id="testimonial">
-      <div class="testimonial-box">
-        <h2 class="heading">Testimonials</h2>
-
-        <div class="wrapper">
-          <div class="testimonial-item">
-            <img src="assets/ngab owi.jpg" alt="Jokowi" />
-            <h2>Jokowi</h2>
-            <div class="rating">
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-            </div>
-            <p>
-              "Rasya benar-benar memberikan hasil kerja yang luar biasa. Sangat
-              profesional dan mudah diajak bekerja sama. Website saya kini
-              terlihat modern dan responsif!"
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="assets/sungeng.jpg" alt="Sugeng" />
-            <h2>Sugeng</h2>
-            <div class="rating">
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-            </div>
-            <p>
-              "Pengalaman bekerja dengan Rasya sangat menyenangkan. Desain yang
-              dibuat sangat sesuai dengan visi saya, dan detailnya sangat
-              diperhatikan."
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="assets/jepri.jpg" alt="Jefri Nichol" />
-            <h2>Jefri Nichol</h2>
-            <div class="rating">
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-              <i class="bx bxs-star" id="star"></i>
-            </div>
-            <p>
-              "Layanan yang diberikan sangat memuaskan. Rasya selalu cepat
-              merespons dan memberikan solusi yang kreatif. Hasil akhirnya
-              sangat memuaskan!"
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact section-transition" id="contact">
-      <h2 class="heading">Contact <span>Me</span></h2>
-
-      <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Full Name" required />
-          <input type="tel" placeholder="Phone Number" />
-        </div>
-        <div class="input-box">
-          <input type="email" placeholder="Email Address" required />
-          <input type="text" placeholder="Email Subject" />
-        </div>
-        <textarea
-          name="message"
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-          required
-        ></textarea>
-        <input type="submit" value="Send Message" class="btn" />
-      </form>
-    </section>
-
-    <!-- Footer Section Code -->
-    <footer class="footer">
-      <div class="social">
-        <a
-          href="https://www.linkedin.com/in/moch-rasya-irgiawan-56a807321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-          target="_blank"
-          ><i class="bx bxl-linkedin"></i
-        ></a>
-        <a href="https://github.com/Rasyairgiawan" target="_blank"
-          ><i class="bx bxl-github"></i
-        ></a>
-        <a href="https://www.facebook.com/rasya.691143" target="_blank"
-          ><i class="bx bxl-facebook"></i
-        ></a>
-        <a href="https://www.instagram.com/rasyairgiawan/" target="_blank"
-          ><i class="bx bxl-instagram"></i
-        ></a>
-      </div>
-      <p class="copyright">&copy; 2023 Rasya Irgiawan - All Rights Reserved</p>
-    </footer>
-
+    <script src="javascript/loading.js"></script>
     <script src="javascript/about.js"></script>
     <script src="javascript/navbar.js"></script>
     <script src="javascript/modal.js"></script>
     <script src="javascript/enhanced.js"></script>
-    <script src="javascript/page-transitions.js"></script>
   </body>
 </html>
